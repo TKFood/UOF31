@@ -1,0 +1,331 @@
+﻿
+.textLeft {
+    text-align: left;
+}
+
+.textRight {
+    text-align: right;
+}
+
+.color_red {
+    color: red;
+}
+
+.color_blue {
+    color: blue;
+}
+
+
+.divtitle {
+    border-width: 1px;
+    border-color: white;
+    padding: 1px;
+    border-style: solid;
+    border-radius: 3px;
+}
+
+    .divtitle.bg {
+        background-color: #f8f9fa;
+    }
+
+.divheader {
+    background-color: #00CCFF;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.divheader2 {
+    background-color: #B0E0E6;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.divheader3 {
+    background-color: #87CEEB;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.divheader4 {
+    background-color: #E0FFFF;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.tsGridView2 {
+    width: 100%;
+}
+
+    .tsGridView2 tr > th {
+        background-color: #336699;
+        color: white;
+        vertical-align: middle;
+        border: 1px solid #DEDEDE;
+        /*height: 25px;*/
+        padding: 5px;
+        white-space: nowrap;
+        text-align: center;
+    }
+
+    .tsGridView2 tr > td {
+        vertical-align: middle;
+        border: 1px solid #DEDEDE;
+        /*height: 25px;*/
+        padding: 5px;
+        white-space: nowrap;
+/*        text-align: left;*/
+    }
+
+.tsGridView2Cell {
+    background-color: white;
+}
+
+.tsGridView2AltCell {
+    background-color: #FFFDCE;
+}
+
+div.GridViewNormal {
+    padding: 0;
+    overflow-x: auto;
+}
+
+input[type=submit].button {
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    padding: .25rem .5rem;
+    font-size: .875rem;
+    line-height: 1.5;
+    border-radius: .2rem;
+    color: #fff;
+    background-color: #28a745;
+    border-color: #28a745;
+    cursor: pointer;
+}
+
+    input[type=submit].button:not(:disabled):not(.disabled) {
+        cursor: pointer;
+    }
+
+    input[type=submit].button:hover {
+        background-color: #2a7b3d;
+    }
+
+
+/* Init Start */
+div.row > div.divtitle {
+    white-space: nowrap;
+    min-width: calc(22px * 4); /* 字體大小:22px , 最長文字數:4 */
+}
+/* Init End */
+.hidden {
+    display: none;
+}
+
+.bg-light divtitle {
+    border-width: 2px;
+    border-color: white;
+    padding: 1px;
+    border-style: solid;
+}
+
+div.GridViewNormal {
+    padding: 0;
+    overflow-x: auto;
+}
+
+input[type=text][readonly] {
+    background-color: #BBBBBB !important;
+    border-top: 1px solid black !important;
+    border-left: 1px solid black !important;
+    border-right: 1px solid #BBBBBB !important;
+    border-bottom: 1px solid #BBBBBB !important;
+    border-radius: 4px;
+    padding: 2px;
+}
+
+div.Datepicker > input[type=text][readonly] {
+    background-color: GhostWhite !important;
+    border-top: 1px solid black !important;
+    border-left: 1px solid black !important;
+    border-right: 1px solid #BBBBBB !important;
+    border-bottom: 1px solid #BBBBBB !important;
+    border-radius: 4px;
+    padding: 2px;
+}
+
+select:disabled,
+input:disabled {
+    color: black !important;
+    cursor: default !important;
+}
+
+div.rowcol {
+    display: flex;
+}
+
+    div.rowcol > div:first-child {
+        text-align: left;
+        width: 100%;
+    }
+
+        div.rowcol > div:first-child > span {
+            /*display: inline-flex;*/
+            align-items: center;
+            height: 100%;
+        }
+
+    div.rowcol > div:not(:first-child) {
+        text-align: right;
+        width: 100%;
+    }
+
+div.divheader3 {
+    font-weight: bold;
+}
+
+select {
+    max-width: 100%;
+}
+/* Plus Start */
+table.rblinline > tbody > tr {
+    display: inline-block;
+    display: inline-flex;
+    padding: 0 4px;
+}
+/* Plus End */
+/* 伸縮隱藏 Start */
+label.btn-coll {
+    display: inline;
+    font-weight: 900;
+}
+
+input.gvItemCollapse {
+    display: none;
+}
+
+    input.gvItemCollapse + div {
+        display: none;
+    }
+
+    input.gvItemCollapse:checked + div {
+        display: inherit;
+        display: flex;
+    }
+/* 伸縮隱藏 End */
+
+/* GridView RWD Start */
+@media only screen and (max-width: 800px) {
+
+    div.GridRWD > div > table:after, div.GridRWD > div > table > thead:after {
+        visibility: hidden;
+        display: block;
+        font-size: 0;
+        content: " ";
+        clear: both;
+        height: 0;
+    }
+
+    * html div.GridRWD > div > table, * html div.GridRWD > div > table > thead {
+        zoom: 1;
+    }
+
+        *:first-child + html div.GridRWD > div > table, *:first-child + html div.GridRWD > div > table > thead {
+            zoom: 1;
+        }
+
+    div.GridRWD table {
+        width: 100%;
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+
+    div.GridRWD th,
+    div.GridRWD td {
+        margin: 0;
+        vertical-align: top;
+    }
+
+    div.GridRWD th {
+        text-align: left;
+    }
+
+    div.GridRWD table {
+        display: block;
+        position: relative;
+        width: 100%;
+    }
+
+    div.GridRWD thead {
+        display: block;
+        float: left;
+    }
+
+    div.GridRWD tbody {
+        display: block;
+        width: auto;
+        position: relative;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    div.GridRWD thead tr {
+        display: block;
+    }
+
+    div.GridRWD th {
+        display: block;
+        text-align: right;
+    }
+
+    div.GridRWD tbody tr {
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    div.GridRWD td {
+        display: block;
+        text-align: left;
+    }
+
+    div.GridRWD th {
+        border-bottom: 0;
+        border-left: 0;
+    }
+
+    div.GridRWD td {
+        border-left: 0;
+        border-right: 0;
+        border-bottom: 0;
+    }
+
+    div.GridRWD tbody tr {
+        border-left: 1px solid #babcbf;
+    }
+
+    div.GridRWD th:last-child,
+    div.GridRWD td:last-child {
+        border-bottom: 1px solid #babcbf;
+    }
+
+    div.GridRWD tr:last-child > td {
+        border-right: 1px solid #dedede;
+    }
+
+    div.GridRWD textarea {
+        resize: horizontal;
+    }
+}
+/* GridView RWD End */

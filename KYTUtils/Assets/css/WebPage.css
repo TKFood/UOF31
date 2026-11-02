@@ -1,0 +1,363 @@
+﻿
+.grid2 > tbody > tr > th {
+    background-color: #336699;
+    color: white;
+    padding: 5px 5px 5px 5px;
+    border: 1px solid #DEDEDE;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.grid2 > tbody > tr > td {
+    padding: 5px 5px 5px 5px;
+    border: 1px solid #DEDEDE;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+    .grid2 > tbody > tr > td:nth-child(1) {
+        width: 1%;
+        text-align: right;
+    }
+
+    .grid2 > tbody > tr > td:nth-child(2) {
+        text-align: left;
+    }
+
+.grid4 > tbody > tr > th {
+    background-color: #336699;
+    color: white;
+    padding: 5px 5px 5px 5px;
+    border: 1px solid #DEDEDE;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.grid4 > tbody > tr > td {
+    padding: 5px 5px 5px 5px;
+    border: 1px solid #DEDEDE;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+    .grid4 > tbody > tr > td:nth-child(1) {
+        width: 1%;
+        text-align: right;
+    }
+
+    .grid4 > tbody > tr > td:nth-child(2) {
+        text-align: left;
+    }
+
+    .grid4 > tbody > tr > td:nth-child(3) {
+        width: 1%;
+        text-align: right;
+    }
+
+    .grid4 > tbody > tr > td:nth-child(4) {
+        text-align: left;
+    }
+
+.grid6 > tbody > tr > th {
+    background-color: #336699;
+    color: white;
+    padding: 5px 5px 5px 5px;
+    border: 1px solid #DEDEDE;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.grid6 > tbody > tr > td {
+    padding: 5px 5px 5px 5px;
+    border: 1px solid #DEDEDE;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+    .grid6 > tbody > tr > td:nth-child(1) {
+        width: 1%;
+        text-align: right;
+    }
+
+    .grid6 > tbody > tr > td:nth-child(2) {
+        text-align: left;
+    }
+
+    .grid6 > tbody > tr > td:nth-child(3) {
+        width: 1%;
+        text-align: right;
+    }
+
+    .grid6 > tbody > tr > td:nth-child(4) {
+        text-align: left;
+    }
+
+    .grid6 > tbody > tr > td:nth-child(5) {
+        width: 1%;
+        text-align: right;
+    }
+
+    .grid6 > tbody > tr > td:nth-child(6) {
+        text-align: left;
+    }
+
+.textLeft {
+    text-align: left;
+}
+
+.textRight {
+    text-align: right;
+}
+
+.color_red {
+    color: red;
+}
+
+.color_blue {
+    color: blue;
+}
+
+.tsGridView2 {
+    width: 100%;
+}
+
+    .tsGridView2 > tbody > tr > th {
+        background-color: #336699;
+        color: white;
+        vertical-align: middle;
+        border: 1px solid #DEDEDE;
+        height: 25px;
+        padding: 5px;
+        white-space: nowrap;
+        text-align: left;
+    }
+
+    .tsGridView2 > tbody > tr > td {
+        vertical-align: middle;
+        border: 1px solid #DEDEDE;
+        height: 25px;
+        padding: 5px;
+        white-space: nowrap;
+        /*text-align: left;*/
+    }
+
+.tsGridView2Cell {
+    background-color: white;
+}
+
+.tsGridView2AltCell {
+    background-color: #FFFDCE;
+}
+
+
+
+
+
+
+
+.divtitle {
+    border-width: 2px;
+    border-color: white;
+    padding: 1px;
+    border-style: solid;
+    border-radius: 3px;
+}
+
+.divheader {
+    background-color: #00CCFF;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.divheader2 {
+    background-color: #B0E0E6;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.divheader3 {
+    background-color: #87CEEB;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.divheader4 {
+    background-color: #E0FFFF;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.hidden {
+    display: none;
+}
+
+div.GridViewNormal {
+    padding: 0;
+    overflow-x: inherit;
+}
+
+    div.GridViewNormal td {
+        background-color: white;
+    }
+
+    div.GridViewNormal table tr > th {
+        text-align: center;
+    }
+
+div.selectHidden > div > div {
+    display: none;
+}
+
+html {
+    overflow: hidden;
+}
+
+.limitHeight {
+    overflow: auto;
+}
+
+div.GridViewNormal table tbody tr:nth-child(odd) td {
+    background: #f3f8ff;
+}
+
+div.GridViewNormal table tbody tr:nth-child(even) td {
+    background: #fff;
+}
+
+div.row .RadPicker input {
+    border-color: #A9A9A9;
+}
+
+div.row input[type=text] {
+    max-width: 100%;
+}
+
+.container > div.row:not(.only-col1) > div:nth-child(2n+1) {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-right: 1px solid #336699;
+    border-left: 1px solid #336699;
+    background-color: #e8f2ff;
+}
+
+.container > div.row:not(.only-col1) > div:first-child {
+    border-left: 0;
+}
+
+.container > div.row:not(.only-col1) > div:last-child {
+    border-right: 0;
+}
+
+.container > div.row > div:nth-child(2n) {
+    padding: 0 5px;
+}
+
+.container > div.row {
+    border: 1px solid #336699;
+    background-color: #FFFFFF;
+}
+
+    .container > div.row:not(:first-child) {
+        border-top-width: 0;
+    }
+
+    .container > div.row > div.divheader2 {
+        background-color: #e8f2ff;
+        background: -webkit-linear-gradient(#e8f2ff,#aacfff);
+        background: -o-linear-gradient(#e8f2ff,#aacfff);
+        background: -moz-linear-gradient(#e8f2ff,#aacfff);
+        background: linear-gradient(#e8f2ff,#aacfff);
+    }
+
+div.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+input[type=submit] {
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #5b98e6;
+    border-color: #4d6584;
+}
+
+.container > div.row > div.btnArea {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+    .container > div.row > div.btnArea > input {
+        margin: 0 10px;
+    }
+div.scheduler1 {
+    padding: 0 !important;
+}
+
+    div.scheduler1 > div {
+        height: auto !important;
+    }
+
+div.rsHeader,
+div.rsWrap {
+    z-index: auto !important;
+}
+
+div.rsDatePickerWrapper {
+    z-index: 1;
+}
+
+
+@keyframes tipAnimation {
+    0% {
+        transform: scale(0.5) translateY(20px);
+        opacity: 0;
+    }
+
+    85% {
+        transform: scale(1.1) translateY(0px);
+    }
+
+    100% {
+        transform: scale(1) translateY(0px);
+        opacity: 1;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .container > div.row:not(.only-col1) > div:nth-child(2n+1) {
+        border-top: 1px solid #336699;
+        border-bottom: 1px solid #336699;
+        border-right: 0;
+        border-left: 0;
+    }
+
+    .container > div.row:not(.only-col1) > div:first-child {
+        border-top: 0;
+    }
+
+    .container > div.row:not(.only-col1) > div:last-child {
+        border-bottom: 0;
+    }
+
+    .container > div.row:not(.only-col1) > div:nth-child(2n) {
+        padding: 5px;
+    }
+}
+
+/*Custom*/
+div.GridViewNormal td {
+    /*text-align: center !important;*/
+}
+
+    div.GridViewNormal td input {
+        text-align: center;
+    }

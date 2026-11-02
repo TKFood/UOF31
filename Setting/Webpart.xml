@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+使用說明:
+<CustomControls>
+  <CustomControl ControlType="EIP_Duty_Punch_UC_Punch" ControlPath="~/EIP/Duty/Punch/UC_Punch.ascx" DefaultTitle="線上刷卡" TitleStyle="h" ZoneIndex="0">
+    <Resource Name="zh-CN" Value="線上刷卡" />
+    <Resource Name="zh-TW" Value="線上刷卡" />
+    <Resource Name="en-US" Value="Online Punch" />
+    <Resource Name="vi" Value="Quẹt thẻ trực tuyến" />
+    <Resource Name="id" Value="absensi swipe kartu" />
+  </CustomControl>
+</CustomControls>
+-->
+
+<CustomControls>
+	<CustomControl ControlType="CDS_WebPart_UC_WebPart" ControlPath="~/CDS/WebPart/UC_WebPart.ascx" DefaultTitle="測試區塊" TitleStyle="h" ZoneIndex="0">
+		<Resource Name="zh-CN" Value="測試區塊" />
+		<Resource Name="zh-TW" Value="測試區塊" />
+		<Resource Name="en-US" Value="Online Punch" />
+		<Resource Name="vi" Value="Quẹt thẻ trực tuyến" />
+		<Resource Name="id" Value="absensi swipe kartu" />
+	</CustomControl>
+	
+	<CustomControl ControlType="CDS_WebPart_UC_Calendar" ControlPath="~/CDS/WebPart/UC_Calendar.ascx" DefaultTitle="行事歷區塊" TitleStyle="h" ZoneIndex="0">
+		<Resource Name="zh-CN" Value="行事歷區塊" />
+		<Resource Name="zh-TW" Value="行事歷區塊" />
+		<Resource Name="en-US" Value="Online Punch" />
+		<Resource Name="vi" Value="Quẹt thẻ trực tuyến" />
+		<Resource Name="id" Value="absensi swipe kartu" />
+	</CustomControl>
+
+	<CustomControl ControlType="CDS_WebPart_UC_TB_EIP_SCH_WORK" ControlPath="~/CDS/WebPart/UC_TB_EIP_SCH_WORK.ascx" DefaultTitle="交辨區塊" TitleStyle="h" ZoneIndex="0">
+		<Resource Name="zh-CN" Value="交辨區塊" />
+		<Resource Name="zh-TW" Value="交辨區塊" />
+		<Resource Name="en-US" Value="Online Punch" />
+		<Resource Name="vi" Value="Quẹt thẻ trực tuyến" />
+		<Resource Name="id" Value="absensi swipe kartu" />
+	</CustomControl>
+ 	<CustomControl ControlType="CDS_SCSHR_WebPages_WebPart_ShowTodayLVHList" ControlPath="~/CDS/SCSHR/WebPages/WebPart_ShowTodayLVHList.ascx" DefaultTitle="飛騰當天請假公差顯示" TitleStyle="j"
+  		 ZoneIndex="0">
+    		<Resource Name="zh-CN" Value="老楊當天請假公差顯示"/>
+    		<Resource Name="zh-TW" Value="老楊當天請假公差顯示"/>
+    		<Resource Name="en-US" Value="老楊當天請假公差顯示"/>
+		<Resource Name="vi" Value="老楊當天請假公差顯示"/>
+    		<Resource Name="id" Value="老楊當天請假公差顯示"/>
+    		<Resource Name="mt-MT" Value="老楊當天請假公差顯示"/>
+    		<Resource Name="ja-jp" Value="老楊當天請假公差顯示"/>
+  	</CustomControl>
+
+
+	<CustomControl ControlType="CDS_WebPart_Report" ControlPath="~/CDS/WebPart/Report.ascx" DefaultTitle="TEST" TitleStyle="h" ZoneIndex="0">
+		<Resource Name="zh-CN" Value="TEST" />
+		<Resource Name="zh-TW" Value="TEST" />
+		<Resource Name="en-US" Value="Online Punch" />
+		<Resource Name="vi" Value="Quẹt thẻ trực tuyến" />
+		<Resource Name="id" Value="absensi swipe kartu" />
+	</CustomControl>
+
+	<CustomControl ControlType="CDS_WebPart_UC_Mobile_SALES_RECORDS" ControlPath="~/CDS/WebPart/UC_Mobile_SALES_RECORDS.ascx" DefaultTitle="業務專案" TitleStyle="h" ZoneIndex="0">
+		<Resource Name="zh-CN" Value="業務專案" />
+		<Resource Name="zh-TW" Value="業務專案" />
+		<Resource Name="en-US" Value="業務專案" />
+		<Resource Name="vi" Value="業務專案" />
+		<Resource Name="id" Value="業務專案" />
+	</CustomControl>
+
+	<CustomControl ControlType="CDS_WebPart_UC_DEV_RECORDS" ControlPath="~/CDS/WebPart/UC_DEV_RECORDS.ascx" DefaultTitle="研發專案進度" TitleStyle="h" ZoneIndex="0">
+		<Resource Name="zh-CN" Value="研發專案進度" />
+		<Resource Name="zh-TW" Value="研發專案進度" />
+		<Resource Name="en-US" Value="研發專案進度" />
+		<Resource Name="vi" Value="研發專案進度" />
+		<Resource Name="id" Value="研發專案進度" />
+	</CustomControl>
+
+	<CustomControl ControlType="CDS_WebPart_UC_TB_SALES_ASSINGED_CN" ControlPath="~/CDS/WebPart/UC_TB_SALES_ASSINGED_CN.ascx" DefaultTitle="大陸專案進度" TitleStyle="h" ZoneIndex="0">
+		<Resource Name="zh-CN" Value="大陸專案進度" />
+		<Resource Name="zh-TW" Value="大陸專案進度" />
+		<Resource Name="en-US" Value="大陸專案進度" />
+		<Resource Name="vi" Value="大陸專案進度" />
+		<Resource Name="id" Value="大陸專案進度" />
+	</CustomControl>
+
+</CustomControls>

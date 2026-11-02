@@ -1,0 +1,155 @@
+﻿.grid2 > tbody > tr > th {
+    background-color: #336699;
+    color: white;
+    padding: 5px 5px 5px 5px;
+    border: 1px solid #DEDEDE;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.grid2 > tbody > tr > td {
+    padding: 5px 5px 5px 5px;
+    border: 1px solid #DEDEDE;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+    .grid2 > tbody > tr > td:nth-child(1) {
+        width: 1%;
+        text-align: right;
+    }
+
+    .grid2 > tbody > tr > td:nth-child(2) {
+        text-align: left;
+    }
+
+.grid4 > tbody > tr > th {
+    background-color: #336699;
+    color: white;
+    padding: 5px 5px 5px 5px;
+    border: 1px solid #DEDEDE;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.grid4 > tbody > tr > td {
+    padding: 5px 5px 5px 5px;
+    border: 1px solid #DEDEDE;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+    .grid4 > tbody > tr > td:nth-child(1) {
+        width: 1%;
+        text-align: right;
+    }
+
+    .grid4 > tbody > tr > td:nth-child(2) {
+        text-align: left;
+    }
+
+    .grid4 > tbody > tr > td:nth-child(3) {
+        width: 1%;
+        text-align: right;
+    }
+
+    .grid4 > tbody > tr > td:nth-child(4) {
+        text-align: left;
+    }
+
+.grid6 > tbody > tr > th {
+    background-color: #336699;
+    color: white;
+    padding: 5px 5px 5px 5px;
+    border: 1px solid #DEDEDE;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.grid6 > tbody > tr > td {
+    padding: 5px 5px 5px 5px;
+    border: 1px solid #DEDEDE;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+    .grid6 > tbody > tr > td:nth-child(1) {
+        width: 1%;
+        text-align: right;
+    }
+
+    .grid6 > tbody > tr > td:nth-child(2) {
+        text-align: left;
+    }
+
+    .grid6 > tbody > tr > td:nth-child(3) {
+        width: 1%;
+        text-align: right;
+    }
+
+    .grid6 > tbody > tr > td:nth-child(4) {
+        text-align: left;
+    }
+
+    .grid6 > tbody > tr > td:nth-child(5) {
+        width: 1%;
+        text-align: right;
+    }
+
+    .grid6 > tbody > tr > td:nth-child(6) {
+        text-align: left;
+    }
+
+.textLeft {
+    text-align: left;
+}
+
+.textRight {
+    text-align: right;
+}
+
+.color_red {
+    color: red;
+}
+
+.color_blue {
+    color: blue;
+}
+
+.div{margin:2px;border:0;padding:0;}
+
+.divtitle {
+    Margin:2px;
+    border-width:1px;
+    border-color:white;
+    padding:1px;
+    border-style:solid;
+    border-radius: 3px;
+}
+
+.divheader {
+    background-color: #00CCFF; 
+    padding: 5px; 
+    border-radius: 5px;
+}
+
+.divheader2 {
+    background-color: #B0E0E6; 
+    padding: 5px; 
+    border-radius: 5px;
+}
+
+.divheader3 {
+    background-color: #87CEEB; 
+    padding: 5px; 
+    border-radius: 5px;
+}
+
+.divheader4 {
+    background-color: #E0FFFF; 
+    padding: 5px; 
+    border-radius: 5px;
+}

@@ -1,0 +1,1 @@
+<add name="ERPconnectionstring" connectionString="data source='192.168.1.105';initial catalog='TK';User Id='TKUOF';Password='TKUOF123456';Max Pool Size=300" providerName="System.Data.SqlClient"/>

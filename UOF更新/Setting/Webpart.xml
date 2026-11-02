@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+使用說明:
+<CustomControls>
+  <CustomControl ControlType="EIP_Duty_Punch_UC_Punch" ControlPath="~/EIP/Duty/Punch/UC_Punch.ascx" DefaultTitle="線上刷卡" TitleStyle="h" ZoneIndex="0">
+    <Resource Name="zh-CN" Value="線上刷卡" />
+    <Resource Name="zh-TW" Value="線上刷卡" />
+    <Resource Name="en-US" Value="Online Punch" />
+    <Resource Name="vi" Value="Quẹt thẻ trực tuyến" />
+    <Resource Name="id" Value="absensi swipe kartu" />
+  </CustomControl>
+</CustomControls>
+-->
+
+<CustomControls>
+	<CustomControl ControlType="CDS_WebPart_UC_WebPart" ControlPath="~/CDS/WebPart/UC_WebPart.ascx" DefaultTitle="測試區塊" TitleStyle="h" ZoneIndex="0">
+		<Resource Name="zh-CN" Value="測試區塊" />
+		<Resource Name="zh-TW" Value="測試區塊" />
+		<Resource Name="en-US" Value="Online Punch" />
+		<Resource Name="vi" Value="Quẹt thẻ trực tuyến" />
+		<Resource Name="id" Value="absensi swipe kartu" />
+	</CustomControl>
+	
+	<CustomControl ControlType="CDS_WebPart_UC_Calendar" ControlPath="~/CDS/WebPart/UC_Calendar.ascx" DefaultTitle="行事歷區塊" TitleStyle="h" ZoneIndex="0">
+		<Resource Name="zh-CN" Value="行事歷區塊" />
+		<Resource Name="zh-TW" Value="行事歷區塊" />
+		<Resource Name="en-US" Value="Online Punch" />
+		<Resource Name="vi" Value="Quẹt thẻ trực tuyến" />
+		<Resource Name="id" Value="absensi swipe kartu" />
+	</CustomControl>
+
+	<CustomControl ControlType="CDS_WebPart_UC_TB_EIP_SCH_WORK" ControlPath="~/CDS/WebPart/UC_TB_EIP_SCH_WORK.ascx" DefaultTitle="交辨區塊" TitleStyle="h" ZoneIndex="0">
+		<Resource Name="zh-CN" Value="交辨區塊" />
+		<Resource Name="zh-TW" Value="交辨區塊" />
+		<Resource Name="en-US" Value="Online Punch" />
+		<Resource Name="vi" Value="Quẹt thẻ trực tuyến" />
+		<Resource Name="id" Value="absensi swipe kartu" />
+	</CustomControl>
+</CustomControls>

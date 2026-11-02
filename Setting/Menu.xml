@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!--
+使用說明:
+<Menus>
+  <menu id="Analysis">
+    <culture name="en-us">Statistic</culture>
+    <culture name="zh-tw">統計分析</culture>
+    <culture name="zh-cn">统计分析</culture>
+    <culture name="vi">Phân tích</culture>
+    <culture name="id">Analisa</culture>
+  </menu>
+
+</Menus>
+ 
+-->
+
+<Menus>
+  <!--PowerBI模組-->
+  <menu id="PowerBI">
+    <culture name="en-us">UOF大數據分析</culture>
+    <culture name="zh-tw">UOF大數據分析</culture>
+    <culture name="zh-cn">UOF大數據分析</culture>
+    <culture name="vi">UOF大數據分析</culture>
+  </menu>
+  <menu id="PowerBIGroup">
+    <culture name="en-us">大數據分析</culture>
+    <culture name="zh-tw">大數據分析</culture>
+    <culture name="zh-cn">大數據分析</culture>
+    <culture name="vi">大數據分析</culture>
+  </menu>
+  <menu id="PowerBIMaintain">
+    <culture name="en-us">Power BI 設定</culture>
+    <culture name="zh-tw">Power BI 設定</culture>
+    <culture name="zh-cn">Power BI 設定</culture>
+    <culture name="vi">Power BI 設定</culture>
+  </menu>
+  <menu id="PowerBIReport1">
+    <culture name="en-us">作業流程管理(每週)</culture>
+    <culture name="zh-tw">作業流程管理(每週)</culture>
+    <culture name="zh-cn">作業流程管理(每週)</culture>
+    <culture name="vi">作業流程管理(每週)</culture>
+  </menu>
+  <menu id="PowerBIReport2">
+    <culture name="en-us">作業流程管理-逾時(每週)</culture>
+    <culture name="zh-tw">作業流程管理-逾時(每週)</culture>
+    <culture name="zh-cn">作業流程管理-逾時(每週)</culture>
+    <culture name="vi">作業流程管理-逾時(每週)</culture>
+  </menu>
+  <menu id="PowerBIReport3">
+    <culture name="en-us">知識資產管理-文件管理(每月)</culture>
+    <culture name="zh-tw">知識資產管理-文件管理(每月)</culture>
+    <culture name="zh-cn">知識資產管理-文件管理(每月)</culture>
+    <culture name="vi">知識資產管理-文件管理(每月)</culture>
+  </menu>
+  <menu id="PowerBIReport4">
+    <culture name="en-us">知識資產管理-討論區(每月)</culture>
+    <culture name="zh-tw">知識資產管理-討論區(每月)</culture>
+    <culture name="zh-cn">知識資產管理-討論區(每月)</culture>
+    <culture name="vi">知識資產管理-討論區(每月)</culture>
+  </menu>
+  <menu id="PowerBIReport5">
+    <culture name="en-us">員工績效管理(每月)</culture>
+    <culture name="zh-tw">員工績效管理(每月)</culture>
+    <culture name="zh-cn">員工績效管理(每月)</culture>
+    <culture name="vi">員工績效管理(每月)</culture>
+  </menu>
+  <menu id="PowerBIReport6">
+    <culture name="en-us">組織溝通管理(每月)</culture>
+    <culture name="zh-tw">組織溝通管理(每月)</culture>
+    <culture name="zh-cn">組織溝通管理(每月)</culture>
+    <culture name="vi">組織溝通管理(每月)</culture>
+  </menu>
+  <menu id="PowerBIReport7">
+    <culture name="en-us">關鍵客戶管理(每月)</culture>
+    <culture name="zh-tw">關鍵客戶管理(每月)</culture>
+    <culture name="zh-cn">關鍵客戶管理(每月)</culture>
+    <culture name="vi">關鍵客戶管理(每月)</culture>
+  </menu>
+</Menus>

@@ -1,0 +1,270 @@
+﻿.grid2 > tbody > tr > th {
+    background-color: #336699;
+    color: white;
+    padding: 5px 5px 5px 5px;
+    border: 1px solid #DEDEDE;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.grid2 > tbody > tr > td {
+    padding: 5px 5px 5px 5px;
+    border: 1px solid #DEDEDE;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+    .grid2 > tbody > tr > td:nth-child(1) {
+        width: 1%;
+        text-align: right;
+    }
+
+    .grid2 > tbody > tr > td:nth-child(2) {
+        text-align: left;
+    }
+
+.grid4 > tbody > tr > th {
+    background-color: #336699;
+    color: white;
+    padding: 5px 5px 5px 5px;
+    border: 1px solid #DEDEDE;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.grid4 > tbody > tr > td {
+    padding: 5px 5px 5px 5px;
+    border: 1px solid #DEDEDE;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+    .grid4 > tbody > tr > td:nth-child(1) {
+        width: 1%;
+        text-align: right;
+    }
+
+    .grid4 > tbody > tr > td:nth-child(2) {
+        text-align: left;
+    }
+
+    .grid4 > tbody > tr > td:nth-child(3) {
+        width: 1%;
+        text-align: right;
+    }
+
+    .grid4 > tbody > tr > td:nth-child(4) {
+        text-align: left;
+    }
+
+.grid6 > tbody > tr > th {
+    background-color: #336699;
+    color: white;
+    padding: 5px 5px 5px 5px;
+    border: 1px solid #DEDEDE;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+.grid6 > tbody > tr > td {
+    padding: 5px 5px 5px 5px;
+    border: 1px solid #DEDEDE;
+    vertical-align: middle;
+    white-space: nowrap;
+}
+
+    .grid6 > tbody > tr > td:nth-child(1) {
+        width: 1%;
+        text-align: right;
+    }
+
+    .grid6 > tbody > tr > td:nth-child(2) {
+        text-align: left;
+    }
+
+    .grid6 > tbody > tr > td:nth-child(3) {
+        width: 1%;
+        text-align: right;
+    }
+
+    .grid6 > tbody > tr > td:nth-child(4) {
+        text-align: left;
+    }
+
+    .grid6 > tbody > tr > td:nth-child(5) {
+        width: 1%;
+        text-align: right;
+    }
+
+    .grid6 > tbody > tr > td:nth-child(6) {
+        text-align: left;
+    }
+
+.textLeft {
+    text-align: left;
+}
+
+.textRight {
+    text-align: right;
+}
+
+.color_red {
+    color: red;
+}
+
+.color_blue {
+    color: blue;
+}
+
+div.tablediv {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+    div.tablediv > div {
+        display: flex;
+        text-align: left;
+    }
+
+        div.tablediv > div.td_head {
+            text-align: center;
+            background-color: antiquewhite;
+        }
+
+        div.tablediv > div > div {
+            border-top: 1px solid #000;
+            border-bottom: 1px solid #000;
+            border-left: 1px solid #000;
+            min-height: 35px;
+        }
+
+            div.tablediv > div > div:last-child {
+                border-right: 1px solid #000;
+            }
+
+        div.tablediv > div:not(.td_head) > div {
+            border-top-width: 0px;
+        }
+
+    div.tablediv.sp1_18 > div > div:nth-child(2),
+    div.tablediv.sp1_18 > div > div:nth-child(3),
+    div.tablediv.sp1_18 > div > div:nth-child(4),
+    div.tablediv.sp1_18 > div > div:nth-child(5),
+    div.tablediv.sp1_18 > div > div:nth-child(11) {
+        flex-basis: 130px;
+    }
+
+    div.tablediv.sp1_18 > div > div:nth-child(1),
+    div.tablediv.sp1_18 > div > div:nth-child(6),
+    div.tablediv.sp1_18 > div > div:nth-child(7),
+    div.tablediv.sp1_18 > div > div:nth-child(10) {
+        flex-basis: 65px;
+    }
+
+    div.tablediv.sp1_18 > div > div:nth-child(8),
+    div.tablediv.sp1_18 > div > div:nth-child(9),
+    div.tablediv.sp1_18 > div > div:nth-child(12),
+    div.tablediv.sp1_18 > div > div:nth-child(13),
+    div.tablediv.sp1_18 > div > div:nth-child(14) {
+        flex-basis: 195px;
+    }
+
+    div.tablediv.sp1_18 > div > div:nth-child(15) {
+        flex-basis: 325px;
+    }
+
+    div.tablediv.sp1_18 > div > div:nth-child(16) {
+        flex-basis: 400px;
+    }
+
+    div.tablediv.sp1_18 > div > div:nth-child(17) {
+        flex-basis: 270px;
+    }
+
+    div.tablediv.sp1_18 > div > div:nth-child(18) {
+        flex-basis: 280px;
+    }
+
+.tsGridView2 {
+    width: 100%;
+}
+
+    .tsGridView2 > tbody > tr > th {
+        background-color: #336699;
+        color: white;
+        vertical-align: middle;
+        border: 1px solid #DEDEDE;
+        height: 25px;
+        padding: 5px;
+        white-space: nowrap;
+        text-align: left;
+    }
+
+    .tsGridView2 > tbody > tr > td {
+        vertical-align: middle;
+        border: 1px solid #DEDEDE;
+        height: 25px;
+        padding: 5px;
+        white-space: nowrap;
+        text-align: left;
+    }
+
+.tsGridView2Cell {
+    background-color: white;
+}
+
+.tsGridView2AltCell {
+    background-color: #FFFDCE;
+}
+
+
+
+
+
+
+
+.divtitle {
+    border-width:2px;
+    border-color:white;
+    padding:1px;
+    border-style:solid;
+    border-radius: 3px;
+}
+
+.divheader {
+    background-color: #00CCFF; 
+    padding: 5px; 
+    border-radius: 5px;
+}
+
+.divheader2 {
+    background-color: #B0E0E6; 
+    padding: 5px; 
+    border-radius: 5px;
+}
+
+.divheader3 {
+    background-color: #87CEEB; 
+    padding: 5px; 
+    border-radius: 5px;
+}
+
+.divheader4 {
+    background-color: #E0FFFF; 
+    padding: 5px; 
+    border-radius: 5px;
+}
+
+.limitHeight {
+    overflow: auto;
+    background-color: aliceblue;
+}
+
+/* 換行不受標準欄位影響 */
+div.row > div{
+	white-space:normal;
+}

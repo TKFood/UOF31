@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="12/11/2020 14:48:21" ReportInfo.Modified="12/11/2020 16:10:58" ReportInfo.CreatorVersion="2016.4.4.0">
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqHwzMSgwTFaHpjtG3vsOj8Zy6q+uhwpDsytgWqwZQZyEQUQyQ022aWUGqU90pHzzNjHuzu89K+RQ2LIBVx1fpgNkNJhwC4eetn2/Uy0fMrO7zDUE5AmRb+0bcYI+lxqpN+i5gA3VDGcwlcfm6L9ZMsLrZ3U+wEDtHCQtd9vw2XUGyMyn5lEg8lNppTWCyTjPB">
+      <TableDataSource Name="Table" DataType="System.Int32" Enabled="true" SelectCommand="SELECT TEMP.NAMES,CONVERT(INT,TB031) TB031,[BUDGETS], ISNULL(CONVERT(decimal(16,4),(TB031/NULLIF([BUDGETS],0)*1)),0) AS PCTS&#13;&#10;FROM (&#13;&#10;SELECT '中山店' AS NAMES,ISNULL(SUM(TB031),0) TB031 FROM [TK].dbo.POSTB,[TK].dbo.POSTA WHERE TA001=TB001 AND TA002=TB002 AND TA003=TB003 AND TA004=TB004  AND TA006=TB006 AND TB002 IN  ('106501' ) AND (TB010 NOT LIKE '599%')  AND (TA009 NOT LIKE '62%') AND TB001&gt;=@SDATE AND TB001&lt;=@EDATE&#13;&#10;UNION ALL&#13;&#10;SELECT '民國店' AS NAMES,ISNULL(SUM(TB031),0) TB031 FROM [TK].dbo.POSTB,[TK].dbo.POSTA WHERE TA001=TB001 AND TA002=TB002 AND TA003=TB003 AND TA004=TB004  AND TA006=TB006 AND TB002 IN  ('106502' ) AND (TB010 NOT LIKE '599%')  AND (TA009 NOT LIKE '62%') AND TB001&gt;=@SDATE AND TB001&lt;=@EDATE&#13;&#10;UNION ALL&#13;&#10;SELECT '北港店' AS NAMES,ISNULL(SUM(TB031),0) TB031 FROM [TK].dbo.POSTB,[TK].dbo.POSTA WHERE TA001=TB001 AND TA002=TB002 AND TA003=TB003 AND TA004=TB004  AND TA006=TB006 AND TB002 IN  ('106503' ) AND (TB010 NOT LIKE '599%')  AND (TA009 NOT LIKE '62%') AND TB001&gt;=@SDATE AND TB001&lt;=@EDATE&#13;&#10;UNION ALL&#13;&#10;SELECT '站前店' AS NAMES,ISNULL(SUM(TB031),0) TB031 FROM [TK].dbo.POSTB,[TK].dbo.POSTA WHERE TA001=TB001 AND TA002=TB002 AND TA003=TB003 AND TA004=TB004  AND TA006=TB006 AND TB002 IN  ('106504' ) AND (TB010 NOT LIKE '599%')  AND (TA009 NOT LIKE '62%') AND TB001&gt;=@SDATE AND TB001&lt;=@EDATE&#13;&#10;UNION ALL&#13;&#10;SELECT '微風店' AS NAMES,ISNULL(SUM(TB031),0) TB031 FROM [TK].dbo.POSTB,[TK].dbo.POSTA WHERE TA001=TB001 AND TA002=TB002 AND TA003=TB003 AND TA004=TB004  AND TA006=TB006 AND TB002 IN  ('106513' ) AND (TB010 NOT LIKE '599%')  AND (TA009 NOT LIKE '62%') AND TB001&gt;=@SDATE AND TB001&lt;=@EDATE&#13;&#10;UNION ALL&#13;&#10;SELECT '市府店' AS NAMES,ISNULL(SUM(TB031),0) TB031 FROM [TK].dbo.POSTB,[TK].dbo.POSTA WHERE TA001=TB001 AND TA002=TB002 AND TA003=TB003 AND TA004=TB004  AND TA006=TB006 AND TB002 IN  ('106514' ) AND (TB010 NOT LIKE '599%')  AND (TA009 NOT LIKE '62%') AND TB001&gt;=@SDATE AND TB001&lt;=@EDATE&#13;&#10;UNION ALL&#13;&#10;SELECT '觀光工廠' AS NAMES,ISNULL(SUM(TB031),0) TB031  FROM [TK].dbo.POSTB WHERE TB002 IN  ('106701','106702' ) AND TB001&gt;=@SDATE AND TB001&lt;=@EDATE&#13;&#10;UNION ALL&#13;&#10;SELECT '電子商務' AS NAMES,ISNULL(SUM(TG045),0) FROM [TK].dbo.COPTG WHERE TG023='Y' AND TG006 IN ('170007') AND TG001 IN ('A233','A234')  AND TG003&gt;=@SDATE AND TG003&lt;=@EDATE&#13;&#10;UNION ALL&#13;&#10;SELECT '消費者' AS NAMES,ISNULL(SUM(TG045),0) FROM [TK].dbo.COPTG WHERE TG023='Y' AND TG006 IN ('170007') AND TG001 IN ('A230')  AND TG003&gt;=@SDATE AND TG003&lt;=@EDATE&#13;&#10;UNION ALL&#13;&#10;SELECT '張協理' AS NAMES,ISNULL(SUM(TG045),0) FROM [TK].dbo.COPTG WHERE TG023='Y' AND TG006 IN ('200050')   AND TG003&gt;=@SDATE AND TG003&lt;=@EDATE&#13;&#10;UNION ALL&#13;&#10;SELECT '顏鴻' AS NAMES,ISNULL(SUM(TG045),0) FROM [TK].dbo.COPTG WHERE TG023='Y' AND TG006 IN ('140078') AND TG001 NOT IN ('A237')  AND TG003&gt;=@SDATE AND TG003&lt;=@EDATE&#13;&#10;UNION ALL&#13;&#10;SELECT '姍怡' AS NAMES,ISNULL(SUM(TG045),0) FROM [TK].dbo.COPTG WHERE TG023='Y' AND TG006 IN ('100005') AND TG001 NOT IN ('A237')   AND TG003&gt;=@SDATE AND TG003&lt;=@EDATE&#13;&#10;UNION ALL&#13;&#10;SELECT '杏育' AS NAMES,ISNULL(SUM(TG045),0) FROM [TK].dbo.COPTG WHERE TG023='Y' AND TG006 IN ('170007') AND TG001 NOT IN ('A230','A233','A234','A237')   AND TG003&gt;=@SDATE AND TG003&lt;=@EDATE&#13;&#10;UNION ALL&#13;&#10;SELECT '櫻芬-國外' AS NAMES,ISNULL(SUM(TG045),0) FROM [TK].dbo.COPTG WHERE TG023='Y' AND TG006 IN ('160155') AND TG001 NOT IN ('A237')   AND TG003&gt;=@SDATE AND TG003&lt;=@EDATE&#13;&#10;UNION ALL&#13;&#10;SELECT '琇平-國外' AS NAMES,ISNULL(SUM(TG045),0) FROM [TK].dbo.COPTG WHERE TG023='Y' AND TG006 IN ('190024') AND TG001 NOT IN ('A237')   AND TG003&gt;=@SDATE AND TG003&lt;=@EDATE&#13;&#10;) AS TEMP&#13;&#10;LEFT JOIN [TKBUSINESS].dbo.TBCOPBUDGET ON TBCOPBUDGET.[NAMES]=TEMP.NAMES AND [YEARS]=@YEARS AND [MONTHS]=@MONTHS">
+        <Column Name="NAMES" DataType="System.String"/>
+        <Column Name="TB031" DataType="System.Int32"/>
+        <Column Name="BUDGETS" DataType="System.Int32"/>
+        <Column Name="PCTS" DataType="System.Decimal"/>
+        <CommandParameter Name="SDATE" DataType="12" Expression="[SDATE]" DefaultValue="20201201"/>
+        <CommandParameter Name="EDATE" DataType="12" Expression="[EDATE]" DefaultValue="20201231"/>
+        <CommandParameter Name="YEARS" DataType="12" Expression="[YEARS]" DefaultValue="2020"/>
+        <CommandParameter Name="MONTHS" DataType="12" Expression="[MONTHS]" DefaultValue="12"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+    <Parameter Name="SDATE" DataType="System.String"/>
+    <Parameter Name="EDATE" DataType="System.String"/>
+    <Parameter Name="YEARS" DataType="System.String"/>
+    <Parameter Name="MONTHS" DataType="System.String"/>
+  </Dictionary>
+  <ReportPage Name="Page1">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="75.6">
+      <TextObject Name="Text10" Top="47.25" Width="160.65" Height="18.9" Text="結束日期:[EDATE]" VertAlign="Center"/>
+      <TextObject Name="Text11" Top="9.45" Width="94.5" Height="18.9" Text="年:[YEARS]" VertAlign="Center"/>
+      <TextObject Name="Text12" Left="94.5" Top="9.45" Width="66.15" Height="18.9" Text="月:[MONTHS]" VertAlign="Center"/>
+      <TextObject Name="Text13" Top="28.35" Width="160.65" Height="18.9" Text="開始日期:[SDATE]" VertAlign="Center"/>
+    </ReportTitleBand>
+    <PageHeaderBand Name="PageHeader1" Top="79.6" Width="718.2" Height="18.9">
+      <TextObject Name="Text2" Left="1" Width="94.5" Height="18.9" Border.Lines="All" Text="門市/業務員" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text4" Left="189" Width="94.5" Height="18.9" Border.Lines="All" Text="實際收入" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text6" Left="94.5" Width="94.5" Height="18.9" Border.Lines="All" Text="該月預算" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text8" Left="283.5" Width="94.5" Height="18.9" Border.Lines="All" Text="達成率" HorzAlign="Center" VertAlign="Center"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="102.5" Width="718.2" Height="18.9" DataSource="Table">
+      <TextObject Name="Text1" Left="1" Width="94.5" Height="18.9" Border.Lines="All" Text="[Table.NAMES]" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text3" Left="189" Width="94.5" Height="18.9" Border.Lines="All" Text="[Table.TB031]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text5" Left="94.5" Width="94.5" Height="18.9" Border.Lines="All" Text="[Table.BUDGETS]" Format="Number" Format.UseLocale="false" Format.DecimalDigits="0" Format.DecimalSeparator="." Format.GroupSeparator="," Format.NegativePattern="1" HorzAlign="Center" VertAlign="Center"/>
+      <TextObject Name="Text7" Left="283.5" Width="94.5" Height="18.9" Border.Lines="All" Text="[Table.PCTS]" Format="Percent" Format.UseLocale="true" HorzAlign="Right" VertAlign="Center" WordWrap="false" Trimming="EllipsisCharacter"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="125.4" Width="718.2" Height="18.9"/>
+  </ReportPage>
+</Report>

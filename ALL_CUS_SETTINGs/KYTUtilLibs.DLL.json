@@ -1,0 +1,178 @@
+﻿[
+  {
+    "Customer": "Common",
+    "Customer_Name": "通用設定",
+    "Settings": [
+      {
+        "Key": "LOG等級",
+        "Values": [
+          "3"
+        ],
+        "CType": 0,
+        "OriDataType": 0,
+        "CTypeName": "TEXT",
+        "Title": "LOG等級",
+        "Description": "LOG等級",
+        "UsedTo": "Common",
+        "Tools": "INPUT",
+        "DefaultValue": [
+          "3"
+        ],
+        "OptionData": [
+          {
+            "Text": "Error",
+            "Value": "1"
+          },
+          {
+            "Text": "Debug",
+            "Value": "2"
+          },
+          {
+            "Text": "Info",
+            "Value": "3"
+          },
+          {
+            "Text": "DetailInfo",
+            "Value": "4"
+          },
+          {
+            "Text": "MaxInfo",
+            "Value": "5"
+          }
+        ]
+      },
+      {
+        "Key": "LOG儲存類型",
+        "Values": [
+          "HOUR"
+        ],
+        "CType": 0,
+        "OriDataType": 0,
+        "CTypeName": "TEXT",
+        "Title": "LOG儲存類型",
+        "Description": "LOG儲存類型",
+        "UsedTo": "Common",
+        "Tools": "INPUT",
+        "DefaultValue": [
+          "HOUR"
+        ],
+        "OptionData": []
+      },
+      {
+        "Key": "LOG路徑",
+        "Values": [
+          "C:\\inetpub\\wwwroot\\UOF\\App_Data\\ZBPMLogs"
+        ],
+        "CType": 0,
+        "OriDataType": 0,
+        "CTypeName": "TEXT",
+        "Title": "LOG路徑",
+        "Description": "LOG路徑",
+        "UsedTo": "Common",
+        "Tools": "INPUT",
+        "DefaultValue": [
+          "C:\\inetpub\\wwwroot\\UOF\\App_Data\\ZBPMLogs"
+        ],
+        "OptionData": []
+      },
+      {
+        "Key": "LOGClass",
+        "Values": [
+          "Both"
+        ],
+        "CType": 0,
+        "OriDataType": 0,
+        "CTypeName": "TEXT",
+        "Title": "LOG寫入類別",
+        "Description": "LOG寫入類別(Both(同時寫入資料庫和IO)、OnlyFile(不寫入資料庫，只寫入IO)、OnlyDB(不寫入IO，只寫入資料庫))",
+        "UsedTo": "Common",
+        "Tools": "INPUT",
+        "DefaultValue": [
+          "Both"
+        ],
+        "OptionData": [
+          {
+            "Text": "Both",
+            "Value": "0"
+          },
+          {
+            "Text": "OnlyFile",
+            "Value": "1"
+          },
+          {
+            "Text": "OnlyDB",
+            "Value": "2"
+          }
+        ]
+      },
+      {
+        "Key": "PUBLIC_SYSTEM_CODE",
+        "Values": [
+          "KYTI_API"
+        ],
+        "CType": 0,
+        "OriDataType": 0,
+        "CTypeName": "TEXT",
+        "Title": "通用驗證名稱",
+        "Description": "通用驗證名稱",
+        "UsedTo": "Common",
+        "Tools": "INPUT",
+        "DefaultValue": [
+          "KYTI_API"
+        ],
+        "OptionData": []
+      },
+      {
+        "Key": "TOKEN_PUBLICKEY",
+        "Values": [
+          "PFJTQUtleVZhbHVlPjxNb2R1bHVzPnB1K0ZHZnFzaXROYzdJVEJWT2Y4QlBXUFV6UjVuZTRYTnJlWlBqZ2psSGJJbG12SDQrQlRoRXlabVpxRkEwRi8xUmVqVzN4b0gwTGN5NlRLRlNJLy8wcnl4VGxoMDY3SHpqOGF4NmF2UEhzRER2OEEyNHpBLzR4cXJHeTNMYlZvclRKYkFMVXI4cVJyZXA0VUY3bWhzRzl2ZS9wWEZiYXlGcXFVYktIZVBiRT08L01vZHVsdXM+PEV4cG9uZW50PkFRQUI8L0V4cG9uZW50PjwvUlNBS2V5VmFsdWU+"
+        ],
+        "CType": 0,
+        "OriDataType": 0,
+        "CTypeName": "TEXT",
+        "Title": "通用驗證公鑰",
+        "Description": "通用驗證公鑰",
+        "UsedTo": "Common",
+        "Tools": "INPUT",
+        "DefaultValue": [
+          "PFJTQUtleVZhbHVlPjxNb2R1bHVzPnB1K0ZHZnFzaXROYzdJVEJWT2Y4QlBXUFV6UjVuZTRYTnJlWlBqZ2psSGJJbG12SDQrQlRoRXlabVpxRkEwRi8xUmVqVzN4b0gwTGN5NlRLRlNJLy8wcnl4VGxoMDY3SHpqOGF4NmF2UEhzRER2OEEyNHpBLzR4cXJHeTNMYlZvclRKYkFMVXI4cVJyZXA0VUY3bWhzRzl2ZS9wWEZiYXlGcXFVYktIZVBiRT08L01vZHVsdXM+PEV4cG9uZW50PkFRQUI8L0V4cG9uZW50PjwvUlNBS2V5VmFsdWU+"
+        ],
+        "OptionData": []
+      },
+      {
+        "Key": "UOF_DEFAULT_ACCOUNT",
+        "Values": [
+          "admin"
+        ],
+        "CType": 0,
+        "OriDataType": 0,
+        "CTypeName": "TEXT",
+        "Title": "通用驗證UOF帳號",
+        "Description": "通用驗證UOF帳號",
+        "UsedTo": "Common",
+        "Tools": "INPUT",
+        "DefaultValue": [
+          "admin"
+        ],
+        "OptionData": []
+      },
+      {
+        "Key": "UOF_DEFAULT_PASSWORD",
+        "Values": [
+          "123456"
+        ],
+        "CType": 0,
+        "OriDataType": 0,
+        "CTypeName": "TEXT",
+        "Title": "通用驗證UOF密碼",
+        "Description": "通用驗證UOF密碼",
+        "UsedTo": "Common",
+        "Tools": "INPUT",
+        "DefaultValue": [
+          "123456"
+        ],
+        "OptionData": []
+      }
+    ]
+  }
+]

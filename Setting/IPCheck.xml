@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- 支援Hot Reload-->
+<IPCheckUrlSetting>
+  <!-- 預設設定，適用於所有未明確指定的路徑 -->
+  <default>
+    <!-- 不支援預設拒絕與預設全允許-->
+    <!-- 可設定多個 AllowedIP 節點，單一IP或IP範圍( 192.168.1.200-192.168.1.210 ) -->
+    
+    <!--<AllowedIP value="127.0.0.1"/>-->
+  </default>
+  
+  <!-- 設定特定路徑的 IP 檢查(路徑一律從 UOF 根節點起算符合)，可另設定較深路徑為例外 -->
+  <!-- 不設定 AllowedIP 節點 或value留空表示拒絕所有 IP -->
+  <!-- 設定 AllowedIP 節點value為 *，代表允許所有IP-->
+  <!-- 可設定多個 AllowedIP 節點，單一IP或IP範圍( 192.168.1.200-192.168.1.210 ) -->
+
+  <!-- 範例-->
+  <!--
+  <location path="/CDS/Sample.aspx">
+    <AllowedIP value="192.168.3.1"/>
+    <AllowedIP value="192.168.5.1-192.168.5.100"/>
+  </location>
+  <location path="/CDS/Setting">
+    <AllowedIP value="*"/>
+  </location>  
+  <location path="/CDS">
+    <AllowedIP value=""/>
+  </location>-->
+  <location path="/WebService/Group.asmx">
+    <AllowedIP value="*"/>
+  </location>
+  <location path="/WebService/Dms.asmx">
+    <AllowedIP value="*"/>
+  </location>
+  <location path="/PublicAPI/WKF/WKF.asmx">
+    <AllowedIP value="*"/>
+  </location>
+  <location path="/PublicAPI/System/Authentication.asmx">
+    <AllowedIP value="*"/>
+  </location>
+  <location path="/PublicAPI/DMS/Dms.asmx">
+    <AllowedIP value="*"/>
+  </location>
+  <location path="/WKF/WebService/TransferFormWS.asmx">
+    <AllowedIP value="*"/>
+  </location>
+  <location path="/PublicAPI/Utility/FileCenter.asmx">
+    <AllowedIP value="*"/>
+  </location>
+
+  <!-- PLUSTEK掃描器-->
+  <location path="/Common/FileCenter/V3/Handler/PostUploadHandler.ashx">
+    <AllowedIP value="192.168.1.47"/>
+    <AllowedIP value="192.168.1.103"/>
+  </location>
+
+ <!-- Proxy-->
+  <location path="/Common/FileCenter/V3/Handler/TransportService.asmx">
+    <AllowedIP value="192.168.1.103"/>
+  </location>
+  <!-- 公開的WebService-->
+  <location path="/PublicAPI">
+    <AllowedIP value="192.168.1.103"/>
+  </location>
+  <!-- IPCheckModule-->
+  <location path="/webservice/user.asmx">
+    <AllowedIP value="192.168.1.90"/>
+  </location>
+  <!-- IPCheckModule-->
+  <location path="/webservice/webpart.asmx">
+    <AllowedIP value="192.168.1.90"/>
+  </location>
+  <!-- IPCheckModule-->
+  <location path="/webservice/uchat.asmx">
+    <AllowedIP value="192.168.1.90"/>
+  </location>
+  <!-- IPCheckModule-->
+  <location path="/webservice/Sip.asmx">
+    <AllowedIP value="192.168.1.90"/>
+  </location>
+  <!-- 電子公文Client-->
+  <location path="/WebService/Edoc.asmx">
+    <AllowedIP value="192.168.1.103"/>
+    <AllowedIP value="192.168.1.90"/>
+  </location>
+  <location path="/WebService/EBSystem.asmx">
+    <AllowedIP value="192.168.1.103"/>
+    <AllowedIP value="192.168.1.90"/>
+  </location>
+  <location path="/WebService/Authentication.asmx">
+    <AllowedIP value="192.168.1.103"/>
+    <AllowedIP value="192.168.1.90"/>
+    <AllowedIP value="52.112.125.10"/>
+  </location>
+
+  <!-- EM(因使用到的功能包含上方列出的項目，但較深路徑優先，所以上方WebService目錄下的也要設定)-->
+  <location path="/WebService/">
+    <AllowedIP value="192.168.1.103"/>
+  </location>
+
+<!--DCS，30.0有改寫法，此段可註解-->
+<!--
+<location path="/Common/DCS/UploadFile.ashx">
+<AllowedIP value="192.168.1.103"/>
+<AllowedIP value="127.0.01"/>
+<AllowedIP value="::1"/>
+</location>  
+<location path="/Common/DCS/CallbackTriggerHandler.ashx">
+<AllowedIP value="192.168.1.103"/>
+<AllowedIP value="127.0.01"/>
+<AllowedIP value="::1"/>
+</location>
+--> 
+
+</IPCheckUrlSetting>

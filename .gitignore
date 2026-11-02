@@ -1,0 +1,11 @@
+# 系統檔
+.DS_Store
+Thumbs.db
+
+# 備份資料夾與備份檔
+WKF_Fields - */
+*.bak
+
+# Visual Studio 暫存
+.vs/
+*.user
