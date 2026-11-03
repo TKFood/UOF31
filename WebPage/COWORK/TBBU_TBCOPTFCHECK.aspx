@@ -3,29 +3,6 @@
 <%@ Register Assembly="Ede.Uof.Utility.Component.Grid" Namespace="Ede.Uof.Utility.Component" TagPrefix="Fast" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <script>    
-        function btn4_Click(sender) {
-            //從前端開始視窗
-            //sender為註冊是由哪個視窗開啟，作為事後要觸發哪個元件的依據
-            //OpenDialogResult為關閉視後會執行的JS Function
-            //參數使用JSON格式傳遞
-            //$uof.dialog.open2("~/CDS/WebPage/COP/TBBU_PRODUCTSDialogADD.aspx", sender, "", 800, 600, OpenDialogResult, {});
-
-            return false;
-
-        }
-
-        //如果有設定回傳值則執行sender Event
-        function OpenDialogResult(returnValue) {
-            if (typeof (returnValue) == "undefined")
-                return false;
-            else
-                return true;
-        }
-
-
-
-    </script>
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
             <telerik:RadTabStrip ID="RadTabStrip1" runat="server"></telerik:RadTabStrip>
@@ -61,14 +38,6 @@
                                 </td>
 
                             </tr>
-                            <%--<tr>
-                        <td class="PopTableLeftTD"></td>
-                        <td>
-                            <asp:Label ID="Label3" runat="server" Text="月份: "></asp:Label>
-                            <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
-                        </td>
-
-                    </tr>--%>
                             <tr>
                                 <td class="PopTableLeftTD"></td>
                                 <td>
@@ -192,17 +161,6 @@
                                                 <asp:BoundField HeaderText="生管備註" DataField="MOCCHECKSCOMMENTS" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center">
                                                     <ItemStyle HorizontalAlign="Left" Width="200px"></ItemStyle>
                                                 </asp:BoundField>
-                                                <%--<asp:TemplateField HeaderText="採購核準" ItemStyle-Width="20px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Left">
-                                                    <ItemTemplate>
-                                                        <asp:Label ID="Label_PURCHECKS" runat="server" Text='<%# Bind("PURCHECKS") %>' Style="word-break: break-all; white-space: pre-line;" Width="20px"></asp:Label>
-                                                    </ItemTemplate>
-                                                </asp:TemplateField>
-                                                <asp:BoundField HeaderText="採購更新日期" DataField="PURCHECKDATES" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center">
-                                                    <ItemStyle HorizontalAlign="Center" Width="10px"></ItemStyle>
-                                                </asp:BoundField>
-                                                <asp:BoundField HeaderText="採購備註" DataField="PURCHECKSCOMMENTS" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center">
-                                                    <ItemStyle HorizontalAlign="Left" Width="200px"></ItemStyle>
-                                                </asp:BoundField>--%>
                                                 <asp:BoundField HeaderText="業務更新日期" DataField="SALESCHECKDATES" ItemStyle-Width="100px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center">
                                                     <ItemStyle HorizontalAlign="Center" Width="10px"></ItemStyle>
                                                 </asp:BoundField>
@@ -240,14 +198,6 @@
                                     </td>
 
                                 </tr>
-                                <%--          <tr>
-                            <td class="PopTableLeftTD"></td>
-                            <td>
-                                <asp:Label ID="Label6" runat="server" Text="月份: "></asp:Label>
-                                <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
-                            </td>
-
-                        </tr>--%>
                                 <tr>
                                     <td class="PopTableLeftTD"></td>
                                     <td>
@@ -406,20 +356,9 @@
                                                                 <asp:ListItem>N</asp:ListItem>
                                                                 <asp:ListItem>Y</asp:ListItem>
 
-
                                                             </asp:DropDownList>
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
-                                                    <%--  <asp:TemplateField HeaderText="更新進度" ItemStyle-Width="80px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center">
-                                                <ItemTemplate>
-                                                    <asp:Button ID="Button3" runat="server" Text="更新" ForeColor="Red" CommandName="Button3" CommandArgument='<%# Eval("TD123") %>' />
-                                                </ItemTemplate>
-                                            </asp:TemplateField>
-                                            <asp:TemplateField HeaderText="是否送簽" ItemStyle-Width="60px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center">
-                                                <ItemTemplate>
-                                                    <asp:Button ID="Button4" runat="server" Text="送簽" CommandName="Button4" ForeColor="Red" CommandArgument='<%# Eval("TD12") %>' />
-                                                </ItemTemplate>
-                                            </asp:TemplateField>--%>
                                                 </Columns>
                                             </Fast:Grid>
                                         </div>
@@ -441,14 +380,6 @@
                                     </td>
 
                                 </tr>
-                                <%--                  <tr>
-                            <td class="PopTableLeftTD"></td>
-                            <td>
-                                <asp:Label ID="Label10" runat="server" Text="月份: "></asp:Label>
-                                <asp:TextBox ID="TextBox6" runat="server"></asp:TextBox>
-                            </td>
-
-                        </tr>--%>
                                 <tr>
                                     <td class="PopTableLeftTD"></td>
                                     <td>
@@ -606,20 +537,9 @@
                                                                 <asp:ListItem>N</asp:ListItem>
                                                                 <asp:ListItem>Y</asp:ListItem>
 
-
                                                             </asp:DropDownList>
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
-                                                    <%--  <asp:TemplateField HeaderText="更新進度" ItemStyle-Width="80px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center">
-                                                <ItemTemplate>
-                                                    <asp:Button ID="Button3" runat="server" Text="更新" ForeColor="Red" CommandName="Button3" CommandArgument='<%# Eval("TD123") %>' />
-                                                </ItemTemplate>
-                                            </asp:TemplateField>
-                                            <asp:TemplateField HeaderText="是否送簽" ItemStyle-Width="60px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center">
-                                                <ItemTemplate>
-                                                    <asp:Button ID="Button4" runat="server" Text="送簽" CommandName="Button4" ForeColor="Red" CommandArgument='<%# Eval("TD12") %>' />
-                                                </ItemTemplate>
-                                            </asp:TemplateField>--%>
                                                 </Columns>
                                             </Fast:Grid>
                                         </div>
@@ -641,14 +561,6 @@
                                     </td>
 
                                 </tr>
-                                <%--                       <tr>
-                            <td class="PopTableLeftTD"></td>
-                            <td>
-                                <asp:Label ID="Label14" runat="server" Text="月份: "></asp:Label>
-                                <asp:TextBox ID="TextBox8" runat="server"></asp:TextBox>
-                            </td>
-
-                        </tr>--%>
                                 <tr>
                                     <td class="PopTableLeftTD"></td>
                                     <td>
@@ -805,16 +717,6 @@
                                                             <asp:Button ID="GRIDVIEW4Button1" runat="server" Text="送簽" CommandName="GRIDVIEW4Button1" ForeColor="Red" CommandArgument='<%# Eval("TF123") %>' />
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
-                                                    <%--  <asp:TemplateField HeaderText="更新進度" ItemStyle-Width="80px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center">
-                                                <ItemTemplate>
-                                                    <asp:Button ID="Button3" runat="server" Text="更新" ForeColor="Red" CommandName="Button3" CommandArgument='<%# Eval("TD123") %>' />
-                                                </ItemTemplate>
-                                            </asp:TemplateField>
-                                            <asp:TemplateField HeaderText="是否送簽" ItemStyle-Width="60px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center">
-                                                <ItemTemplate>
-                                                    <asp:Button ID="Button4" runat="server" Text="送簽" CommandName="Button4" ForeColor="Red" CommandArgument='<%# Eval("TD12") %>' />
-                                                </ItemTemplate>
-                                            </asp:TemplateField>--%>
                                                 </Columns>
                                             </Fast:Grid>
                                         </div>
@@ -836,14 +738,6 @@
                                     </td>
 
                                 </tr>
-                                <%--                     <tr>
-                            <td class="PopTableLeftTD"></td>
-                            <td>
-                                <asp:Label ID="Label22" runat="server" Text="月份: "></asp:Label>
-                                <asp:TextBox ID="TextBox14" runat="server"></asp:TextBox>
-                            </td>
-
-                        </tr>--%>
                                 <tr>
                                     <td class="PopTableLeftTD"></td>
                                     <td>
@@ -979,16 +873,6 @@
                                                             <asp:Button ID="GRIDVIEW5Button1" runat="server" Text="送簽" CommandName="GRIDVIEW5Button1" ForeColor="Red" CommandArgument='<%# Eval("TF123") %>' />
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
-                                                    <%--  <asp:TemplateField HeaderText="更新進度" ItemStyle-Width="80px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center">
-                                                <ItemTemplate>
-                                                    <asp:Button ID="Button3" runat="server" Text="更新" ForeColor="Red" CommandName="Button3" CommandArgument='<%# Eval("TD123") %>' />
-                                                </ItemTemplate>
-                                            </asp:TemplateField>
-                                            <asp:TemplateField HeaderText="是否送簽" ItemStyle-Width="60px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center">
-                                                <ItemTemplate>
-                                                    <asp:Button ID="Button4" runat="server" Text="送簽" CommandName="Button4" ForeColor="Red" CommandArgument='<%# Eval("TD12") %>' />
-                                                </ItemTemplate>
-                                            </asp:TemplateField>--%>
                                                 </Columns>
                                             </Fast:Grid>
                                         </div>
@@ -1134,16 +1018,6 @@
                                                             <asp:Button ID="GRIDVIEW7Button1" runat="server" Text="送簽" CommandName="GRIDVIEW7Button1" ForeColor="Red" CommandArgument='<%# Eval("TF123") %>' />
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
-                                                    <%--  <asp:TemplateField HeaderText="更新進度" ItemStyle-Width="80px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center">
-                                                <ItemTemplate>
-                                                    <asp:Button ID="Button3" runat="server" Text="更新" ForeColor="Red" CommandName="Button3" CommandArgument='<%# Eval("TD123") %>' />
-                                                </ItemTemplate>
-                                            </asp:TemplateField>
-                                            <asp:TemplateField HeaderText="是否送簽" ItemStyle-Width="60px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center">
-                                                <ItemTemplate>
-                                                    <asp:Button ID="Button4" runat="server" Text="送簽" CommandName="Button4" ForeColor="Red" CommandArgument='<%# Eval("TD12") %>' />
-                                                </ItemTemplate>
-                                            </asp:TemplateField>--%>
                                                 </Columns>
                                             </Fast:Grid>
                                         </div>
@@ -1279,16 +1153,6 @@
                                                             <asp:Button ID="GRIDVIEW6Button1" runat="server" Text="送簽" CommandName="GRIDVIEW6Button1" ForeColor="Red" CommandArgument='<%# Eval("TF123") %>' />
                                                         </ItemTemplate>
                                                     </asp:TemplateField>
-                                                    <%--  <asp:TemplateField HeaderText="更新進度" ItemStyle-Width="80px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center">
-                                                <ItemTemplate>
-                                                    <asp:Button ID="Button3" runat="server" Text="更新" ForeColor="Red" CommandName="Button3" CommandArgument='<%# Eval("TD123") %>' />
-                                                </ItemTemplate>
-                                            </asp:TemplateField>
-                                            <asp:TemplateField HeaderText="是否送簽" ItemStyle-Width="60px" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center">
-                                                <ItemTemplate>
-                                                    <asp:Button ID="Button4" runat="server" Text="送簽" CommandName="Button4" ForeColor="Red" CommandArgument='<%# Eval("TD12") %>' />
-                                                </ItemTemplate>
-                                            </asp:TemplateField>--%>
                                                 </Columns>
                                             </Fast:Grid>
                                         </div>
@@ -1302,7 +1166,7 @@
                     <div id="tabs-99">
                     </div>
                 </telerik:RadPageView>
-            </telerik:RadMultiPage>​
+            </telerik:RadMultiPage>
         </ContentTemplate>
     </asp:UpdatePanel>
 
