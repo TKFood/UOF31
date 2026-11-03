@@ -11,7 +11,7 @@
         /* ---------- 顏色說明 ---------- */
         .check-legend {
             margin: 6px 0 8px;
-            font-size: 13px;
+            font-size: 15px;
             color: #555;
         }
 
@@ -22,8 +22,8 @@
 
         .check-legend i {
             display: inline-block;
-            width: 14px;
-            height: 14px;
+            width: 16px;
+            height: 16px;
             margin-right: 4px;
             vertical-align: -2px;
             border: 1px solid #c8d0da;
@@ -39,13 +39,14 @@
         }
 
         /* GridView 預設會輸出 border-collapse:collapse，固定表頭需要改成 separate */
-        /* 表格寬度跟著畫面寬度：欄位內容自動換行，盡量不出現左右捲軸 */
+        /* 表格至少跟畫面一樣寬，欄位多時可左右捲動 */
         .grid-wrap table {
-            width: 100% !important;
+            width: auto !important;
+            min-width: 100%;
             border-collapse: separate !important;
             border-spacing: 0;
             border-left: 1px solid #b8c4d2;
-            font-size: 13px;
+            font-size: 15px;
         }
 
         /* 格線：每格都有右框線與下框線 */
@@ -62,15 +63,14 @@
             position: sticky;
             top: 0;
             z-index: 2;
-            padding: 5px 4px;
+            padding: 8px 8px;
             color: #fff !important;
             background: #2f5f8f !important;
             border-right-color: #6f8fae !important;
             border-bottom: 2px solid #1f4369 !important;
             font-weight: bold;
-            white-space: normal;
+            white-space: nowrap;
             text-align: center;
-            line-height: 1.3;
         }
 
         /* 可排序欄位的表頭文字是連結 */
@@ -86,10 +86,10 @@
         }
 
         .grid-wrap td {
-            padding: 4px 5px;
+            padding: 6px 8px;
             background-color: #fff;
             vertical-align: top;
-            word-break: break-word;
+            line-height: 1.5;
         }
 
         /* 滑過的列加深，方便對照同一列的欄位 */
@@ -97,26 +97,42 @@
             background-color: #e8f0fa;
         }
 
-        /* ---------- 欄位類型（不設固定寬度，由瀏覽器依畫面寬度分配） ---------- */
+        /* ---------- 欄位類型：數字靠右、文字靠左，Y/N 與按鈕置中（表頭跟著欄位對齊） ---------- */
+        .grid-wrap .col-num {
+            text-align: right;
+            white-space: nowrap;
+        }
+
+        .grid-wrap .col-text,
         .grid-wrap .col-code,
+        .grid-wrap .col-item,
+        .grid-wrap .col-name,
+        .grid-wrap .col-note,
+        .grid-wrap .col-date {
+            text-align: left;
+        }
+
         .grid-wrap .col-flag,
         .grid-wrap .col-action {
             text-align: center;
             white-space: nowrap;
         }
 
-        /* 更新日期是「日期 時間」，空白處可換成兩行 */
-        .grid-wrap .col-date {
-            text-align: center;
-        }
-
-        .grid-wrap .col-num {
-            text-align: right;
+        .grid-wrap .col-code {
             white-space: nowrap;
         }
 
+        /* 更新日期是「日期 時間」，空白處換成兩行 */
+        .grid-wrap .col-date {
+            min-width: 90px;
+        }
+
         .grid-wrap .col-text {
-            text-align: left;
+            min-width: 110px;
+        }
+
+        .grid-wrap .col-name {
+            min-width: 200px;
         }
 
         .grid-wrap .col-item {
@@ -124,19 +140,26 @@
         }
 
         .grid-wrap .col-note {
+            min-width: 220px;
+            max-width: 320px;
             white-space: pre-line;
             word-break: break-all;
         }
 
         .grid-wrap .col-input textarea {
-            width: 100%;
-            min-width: 100px;
+            width: 220px;
+            font-size: 15px;
             box-sizing: border-box;
         }
 
         /* ---------- 生管核准狀態 ---------- */
         .grid-wrap tr.row-ready > td { background-color: #eaf6ea; }   /* 需生產，生管已核准 */
         .grid-wrap tr.row-wait > td  { background-color: #fff6dc; }   /* 需生產，等待生管核准 */
+
+        /* 剛按過「更新」「送簽」的那一列：上下加橘色框線 */
+        .grid-wrap tr.row-current > td {
+            box-shadow: inset 0 2px 0 #f08c00, inset 0 -2px 0 #f08c00;
+        }
 
         .grid-wrap td.st-ok   { color: #1a7f37; font-weight: bold; }
         .grid-wrap td.st-wait { color: #c62828; font-weight: bold; }
@@ -152,7 +175,8 @@
         /* ---------- 按鈕 ---------- */
         .btn-edit,
         .btn-send {
-            padding: 2px 6px;
+            padding: 4px 12px;
+            font-size: 15px;
             border-radius: 3px;
             cursor: pointer;
             white-space: nowrap;
@@ -172,7 +196,137 @@
 
         .btn-edit:hover { background-color: #eef4fb; }
         .btn-send:hover { background-color: #174a84; }
+
+        /* ---------- 查詢條件區 ---------- */
+        .PopTable,
+        .PopTable input,
+        .PopTable select {
+            font-size: 15px;
+        }
+
+        .PopTable input[type=text] {
+            padding: 3px 4px;
+        }
+
+        .PopTable input[type=submit] {
+            padding: 4px 14px;
+        }
+
+        /* 分頁標籤 */
+        .RadTabStrip .rtsTxt {
+            font-size: 15px;
+        }
+
+        /* 列表內的下拉選單 */
+        .grid-wrap select {
+            font-size: 15px;
+        }
     </style>
+    <script type="text/javascript">
+        /* 按下列表中的「更新」「送簽」等按鈕後，畫面停在原本的位置，並標示剛操作的那一列 */
+        (function () {
+            var STORAGE_KEY = 'coptcheck.position.' + location.pathname;
+
+            function gridWraps() {
+                return document.querySelectorAll('.grid-wrap');
+            }
+
+            function indexOf(list, item) {
+                for (var i = 0; i < list.length; i++) {
+                    if (list[i] === item) { return i; }
+                }
+                return -1;
+            }
+
+            // 記住每個列表的捲動位置、整頁的捲動位置，以及按下的按鈕在第幾列
+            function savePosition(sourceElement) {
+                var wraps = gridWraps();
+                var state = { grids: [], winX: window.pageXOffset, winY: window.pageYOffset, row: null };
+
+                for (var i = 0; i < wraps.length; i++) {
+                    state.grids.push({ top: wraps[i].scrollTop, left: wraps[i].scrollLeft });
+                }
+
+                if (sourceElement && sourceElement.closest) {
+                    var wrap = sourceElement.closest('.grid-wrap');
+                    var tr = sourceElement.closest('tr');
+                    if (wrap && tr) {
+                        state.row = { grid: indexOf(wraps, wrap), index: tr.rowIndex };
+                    }
+                }
+
+                try { sessionStorage.setItem(STORAGE_KEY, JSON.stringify(state)); } catch (e) { }
+            }
+
+            function restorePosition() {
+                var state = null;
+                try {
+                    state = JSON.parse(sessionStorage.getItem(STORAGE_KEY));
+                    sessionStorage.removeItem(STORAGE_KEY);
+                } catch (e) { }
+                if (!state) { return; }
+
+                var wraps = gridWraps();
+                for (var i = 0; i < wraps.length && i < state.grids.length; i++) {
+                    wraps[i].scrollTop = state.grids[i].top;
+                    wraps[i].scrollLeft = state.grids[i].left;
+                }
+                window.scrollTo(state.winX, state.winY);
+
+                if (state.row && wraps[state.row.grid]) {
+                    var table = wraps[state.row.grid].querySelector('table');
+                    var tr = table && table.rows[state.row.index];
+                    if (tr) { tr.className += ' row-current'; }
+                }
+            }
+
+            // 按了列表外的按鈕（查詢、批次更新），清掉之前記住的位置，避免開窗後沒存檔留下舊位置
+            function clearPosition() {
+                try { sessionStorage.removeItem(STORAGE_KEY); } catch (e) { }
+            }
+
+            // 只處理列表內的按鈕；查詢、批次更新等按鈕照常回到最上面
+            function isGridButton(element) {
+                return element && element.closest && element.closest('.grid-wrap') !== null;
+            }
+
+            // 一般送出（例如開窗更新後回到本頁）
+            document.addEventListener('click', function (e) {
+                var target = e.target;
+                if (target.tagName !== 'INPUT' && target.tagName !== 'BUTTON') { return; }
+                if (isGridButton(target)) {
+                    savePosition(target);
+                } else if (target.type === 'submit') {
+                    clearPosition();
+                }
+            }, true);
+
+            function hookAjax() {
+                if (typeof Sys === 'undefined' || !Sys.WebForms || !Sys.WebForms.PageRequestManager) { return; }
+                var prm = Sys.WebForms.PageRequestManager.getInstance();
+
+                // UpdatePanel 局部更新前後
+                prm.add_beginRequest(function (sender, args) {
+                    var source = args.get_postBackElement();
+                    if (isGridButton(source)) {
+                        savePosition(source);
+                    } else {
+                        clearPosition();
+                    }
+                });
+                prm.add_pageLoaded(function () {
+                    restorePosition();
+                });
+            }
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', function () { hookAjax(); restorePosition(); });
+            } else {
+                hookAjax();
+                restorePosition();
+            }
+        })();
+    </script>
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
 
