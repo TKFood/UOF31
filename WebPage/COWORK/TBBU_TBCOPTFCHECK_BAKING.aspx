@@ -3,7 +3,176 @@
 <%@ Register Assembly="Ede.Uof.Utility.Component.Grid" Namespace="Ede.Uof.Utility.Component" TagPrefix="Fast" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <link href="../CSS/coptcheck.css?v=3" rel="stylesheet" type="text/css" />
+    <%-- 本頁樣式直接內嵌在頁面中，部署時不用另外複製 CSS 檔 --%>
+    <style type="text/css">
+        /* 訂單協調／訂單變更協調頁面共用樣式
+           使用頁面：COWORK/TBBU_TBCOPTDCHECK(_BAKING).aspx、COWORK/TBBU_TBCOPTFCHECK(_BAKING).aspx */
+
+        /* ---------- 顏色說明 ---------- */
+        .check-legend {
+            margin: 6px 0 8px;
+            font-size: 13px;
+            color: #555;
+        }
+
+        .check-legend span {
+            display: inline-block;
+            margin-right: 14px;
+        }
+
+        .check-legend i {
+            display: inline-block;
+            width: 14px;
+            height: 14px;
+            margin-right: 4px;
+            vertical-align: -2px;
+            border: 1px solid #c8d0da;
+        }
+
+        /* ---------- 列表外框：固定高度、表頭不捲動 ---------- */
+        .grid-wrap {
+            width: 100%;
+            max-height: calc(100vh - 280px);
+            min-height: 200px;
+            overflow: auto;
+            border: 1px solid #d9dee5;
+        }
+
+        /* GridView 預設會輸出 border-collapse:collapse，固定表頭需要改成 separate */
+        /* 表格寬度跟著畫面寬度：欄位內容自動換行，盡量不出現左右捲軸 */
+        .grid-wrap table {
+            width: 100% !important;
+            border-collapse: separate !important;
+            border-spacing: 0;
+            border-left: 1px solid #b8c4d2;
+            font-size: 13px;
+        }
+
+        /* 格線：每格都有右框線與下框線 */
+        .grid-wrap th,
+        .grid-wrap td {
+            border-top: 0 !important;
+            border-left: 0 !important;
+            border-right: 1px solid #b8c4d2 !important;
+            border-bottom: 1px solid #b8c4d2 !important;
+        }
+
+        /* 表頭：深藍底白字，往下捲動時固定在上方 */
+        .grid-wrap th {
+            position: sticky;
+            top: 0;
+            z-index: 2;
+            padding: 5px 4px;
+            color: #fff !important;
+            background: #2f5f8f !important;
+            border-right-color: #6f8fae !important;
+            border-bottom: 2px solid #1f4369 !important;
+            font-weight: bold;
+            white-space: normal;
+            text-align: center;
+            line-height: 1.3;
+        }
+
+        /* 可排序欄位的表頭文字是連結 */
+        .grid-wrap th a,
+        .grid-wrap th a:link,
+        .grid-wrap th a:visited {
+            color: #fff !important;
+            text-decoration: none;
+        }
+
+        .grid-wrap th a:hover {
+            text-decoration: underline;
+        }
+
+        .grid-wrap td {
+            padding: 4px 5px;
+            background-color: #fff;
+            vertical-align: top;
+            word-break: break-word;
+        }
+
+        /* 滑過的列加深，方便對照同一列的欄位 */
+        .grid-wrap tr:hover > td {
+            background-color: #e8f0fa;
+        }
+
+        /* ---------- 欄位類型（不設固定寬度，由瀏覽器依畫面寬度分配） ---------- */
+        .grid-wrap .col-code,
+        .grid-wrap .col-flag,
+        .grid-wrap .col-action {
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        /* 更新日期是「日期 時間」，空白處可換成兩行 */
+        .grid-wrap .col-date {
+            text-align: center;
+        }
+
+        .grid-wrap .col-num {
+            text-align: right;
+            white-space: nowrap;
+        }
+
+        .grid-wrap .col-text {
+            text-align: left;
+        }
+
+        .grid-wrap .col-item {
+            white-space: nowrap;
+        }
+
+        .grid-wrap .col-note {
+            white-space: pre-line;
+            word-break: break-all;
+        }
+
+        .grid-wrap .col-input textarea {
+            width: 100%;
+            min-width: 100px;
+            box-sizing: border-box;
+        }
+
+        /* ---------- 生管核准狀態 ---------- */
+        .grid-wrap tr.row-ready > td { background-color: #eaf6ea; }   /* 需生產，生管已核准 */
+        .grid-wrap tr.row-wait > td  { background-color: #fff6dc; }   /* 需生產，等待生管核准 */
+
+        .grid-wrap td.st-ok   { color: #1a7f37; font-weight: bold; }
+        .grid-wrap td.st-wait { color: #c62828; font-weight: bold; }
+
+        .legend-ready { background-color: #eaf6ea; }
+        .legend-wait  { background-color: #fff6dc; }
+        .legend-free  { background-color: #fff; }
+
+        .check-legend .legend-note {
+            color: #1f5fa8;
+        }
+
+        /* ---------- 按鈕 ---------- */
+        .btn-edit,
+        .btn-send {
+            padding: 2px 6px;
+            border-radius: 3px;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .btn-edit {
+            color: #1f5fa8;
+            background-color: #fff;
+            border: 1px solid #1f5fa8;
+        }
+
+        .btn-send {
+            color: #fff;
+            background-color: #1f5fa8;
+            border: 1px solid #1f5fa8;
+        }
+
+        .btn-edit:hover { background-color: #eef4fb; }
+        .btn-send:hover { background-color: #174a84; }
+    </style>
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
             <telerik:RadTabStrip ID="RadTabStrip2" runat="server" MultiPageID="RadMultiPage" SelectedIndex="0" AutoPostBack="True" OnTabClick="RadTabStrip2_TabClick">
