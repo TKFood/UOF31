@@ -36,6 +36,9 @@ public partial class CDS_WebPage_COP_TBBU_TBCOPTFCHECK_BAKING : Ede.Uof.Utility.
     private const string STATUS_UNCONFIRMED = "未核單";
     private const string STATUS_CONFIRMED = "已核單";
 
+    /// <summary>單身「是否生產」欄位</summary>
+    private const string PRODUCE_FIELD = "COPTFUDF01";
+
     private string ACCOUNT = null;
     private string NAME = null;
     private string ROLES = null;
@@ -133,12 +136,12 @@ public partial class CDS_WebPage_COP_TBBU_TBCOPTFCHECK_BAKING : Ede.Uof.Utility.
         }
     }
 
-    /// <summary>6.管理者直接送簽（只有 ADMIN 看得到）</summary>
+    /// <summary>6.管理者直接送簽（只有 ADMIN 看得到；資料量大，切換過去不自動查詢）</summary>
     private SearchPanel PanelAdmin
     {
         get
         {
-            return new SearchPanel { OrderNo = TextBox4, Grid = Grid6 };
+            return new SearchPanel { OrderNo = TextBox4, Customer = TextBox20, Product = TextBox21, Grid = Grid6 };
         }
     }
 
@@ -182,10 +185,9 @@ public partial class CDS_WebPage_COP_TBBU_TBCOPTFCHECK_BAKING : Ede.Uof.Utility.
                 FillYesNoItems(ddl);
             }
 
-            // 進頁面先載入 1.訂單變更協調、2.生管用、7.訂單變更單未填明細
+            // 進頁面只查第一個分頁，其他分頁切換過去時才查詢
             BindPanel(PanelOrder);
-            BindPanel(PanelMoc);
-            BindGrid7();
+            MarkPageViewLoaded("RadPageView1");
         }
     }
 
@@ -195,14 +197,16 @@ public partial class CDS_WebPage_COP_TBBU_TBCOPTFCHECK_BAKING : Ede.Uof.Utility.
     /// </summary>
     private void ApplyRolePermissions()
     {
+        bool isAdmin = ROLES == "ADMIN";
+
         Button4.Enabled = false;
-        RadPageView6.Visible = false;
+        RadPageView6.Visible = isAdmin;
+        RadTabStrip2.FindTabByValue("ADMIN").Visible = isAdmin;
 
         switch (ROLES)
         {
             case "ADMIN":
                 SetBatchButtons(true, true, true);
-                RadPageView6.Visible = true;
                 break;
             case "MOC":
                 SetBatchButtons(true, false, false);
@@ -242,7 +246,8 @@ public partial class CDS_WebPage_COP_TBBU_TBCOPTFCHECK_BAKING : Ede.Uof.Utility.
     #region 查詢
 
     /// <summary>
-    /// 每筆變更單明細最新一筆協調紀錄（TBCOPTFCHECK 依 ID 取最新）
+    /// 每筆變更單明細最新一筆協調紀錄（TBCOPTFCHECK 依 ID 取最新），
+    /// 以及整張變更單是否可以送簽（ORDER_MOC_READY、ORDER_NO_PRODUCE）
     /// </summary>
     private const string LATEST_CHECK_COLUMNS = @"
         ,(SELECT TOP 1 ISNULL(MOCCHECKDATES,'') FROM [TKBUSINESS].[dbo].[TBCOPTFCHECK] WHERE TBCOPTFCHECK.TF001=COPTF.TF001 AND TBCOPTFCHECK.TF002=COPTF.TF002 AND TBCOPTFCHECK.TF003=COPTF.TF003 AND TBCOPTFCHECK.TF004=COPTF.TF004 ORDER BY ID DESC) AS 'MOCCHECKDATES'
@@ -253,7 +258,18 @@ public partial class CDS_WebPage_COP_TBBU_TBCOPTFCHECK_BAKING : Ede.Uof.Utility.
         ,(SELECT TOP 1 ISNULL(PURCHECKSCOMMENTS,'') FROM [TKBUSINESS].[dbo].[TBCOPTFCHECK] WHERE TBCOPTFCHECK.TF001=COPTF.TF001 AND TBCOPTFCHECK.TF002=COPTF.TF002 AND TBCOPTFCHECK.TF003=COPTF.TF003 AND TBCOPTFCHECK.TF004=COPTF.TF004 ORDER BY ID DESC) AS 'PURCHECKSCOMMENTS'
         ,(SELECT TOP 1 ISNULL(SALESCHECKDATES,'') FROM [TKBUSINESS].[dbo].[TBCOPTFCHECK] WHERE TBCOPTFCHECK.TF001=COPTF.TF001 AND TBCOPTFCHECK.TF002=COPTF.TF002 AND TBCOPTFCHECK.TF003=COPTF.TF003 AND TBCOPTFCHECK.TF004=COPTF.TF004 ORDER BY ID DESC) AS 'SALESCHECKDATES'
         ,(SELECT TOP 1 ISNULL(SALESCHECKSCOMMENTS,'') FROM [TKBUSINESS].[dbo].[TBCOPTFCHECK] WHERE TBCOPTFCHECK.TF001=COPTF.TF001 AND TBCOPTFCHECK.TF002=COPTF.TF002 AND TBCOPTFCHECK.TF003=COPTF.TF003 AND TBCOPTFCHECK.TF004=COPTF.TF004 ORDER BY ID DESC) AS 'SALESCHECKSCOMMENTS'
-        ,COPTF.UDF01 AS 'COPTFUDF01'";
+        ,COPTF.UDF01 AS 'COPTFUDF01'
+        ,CASE WHEN EXISTS (
+            SELECT 1 FROM [TK].dbo.COPTF AS CHANGELINE
+            WHERE CHANGELINE.TF001=COPTF.TF001 AND CHANGELINE.TF002=COPTF.TF002 AND CHANGELINE.TF003=COPTF.TF003
+            AND CHANGELINE.UDF01 IN ('Y','y')
+            AND ISNULL((SELECT TOP 1 ISNULL(MOCCHECKS,'') FROM [TKBUSINESS].[dbo].[TBCOPTFCHECK] WHERE TBCOPTFCHECK.TF001=CHANGELINE.TF001 AND TBCOPTFCHECK.TF002=CHANGELINE.TF002 AND TBCOPTFCHECK.TF003=CHANGELINE.TF003 AND TBCOPTFCHECK.TF004=CHANGELINE.TF004 ORDER BY ID DESC),'') NOT IN ('Y')
+          ) THEN 'N' ELSE 'Y' END AS 'ORDER_MOC_READY'
+        ,CASE WHEN EXISTS (
+            SELECT 1 FROM [TK].dbo.COPTF AS CHANGELINE
+            WHERE CHANGELINE.TF001=COPTF.TF001 AND CHANGELINE.TF002=COPTF.TF002 AND CHANGELINE.TF003=COPTF.TF003
+            AND CHANGELINE.UDF01 IN ('Y','y')
+          ) THEN 'N' ELSE 'Y' END AS 'ORDER_NO_PRODUCE'";
 
     /// <summary>
     /// 依分頁的查詢條件撈變更單明細並綁定到 Grid（分頁 1~6）
@@ -398,6 +414,137 @@ public partial class CDS_WebPage_COP_TBBU_TBCOPTFCHECK_BAKING : Ede.Uof.Utility.
 
     #endregion
 
+    #region 分頁切換與列表樣式
+
+    /// <summary>分頁（PageView）對應的查詢條件區塊；7.只有單頭另外處理，6.管理者分頁不自動查詢</summary>
+    private SearchPanel PanelOfPageView(string pageViewId)
+    {
+        switch (pageViewId)
+        {
+            case "RadPageView1": return PanelOrder;
+            case "RadPageView2": return PanelMoc;
+            case "RadPageView3": return PanelPur;
+            case "RadPageView4": return PanelSales;
+            case "RadPageView5": return PanelStock;
+            default: return null;
+        }
+    }
+
+    /// <summary>
+    /// 切換分頁：第一次進入某個分頁時才查詢，避免開頁時一次載入全部分頁。
+    /// 已載入過的分頁不重查，保留使用者在列表中輸入到一半的備註。
+    /// </summary>
+    protected void RadTabStrip2_TabClick(object sender, Telerik.Web.UI.RadTabStripEventArgs e)
+    {
+        string pageViewId = e.Tab.PageViewID;
+        if (IsPageViewLoaded(pageViewId))
+        {
+            return;
+        }
+
+        SearchPanel panel = PanelOfPageView(pageViewId);
+        if (panel != null)
+        {
+            BindPanel(panel);
+        }
+        else if (pageViewId == "RadPageView7")
+        {
+            BindGrid7();
+        }
+        MarkPageViewLoaded(pageViewId);
+    }
+
+    private bool IsPageViewLoaded(string pageViewId)
+    {
+        string loaded = ViewState["LoadedPageViews"] as string ?? "";
+        return loaded.Contains("|" + pageViewId + "|");
+    }
+
+    private void MarkPageViewLoaded(string pageViewId)
+    {
+        string loaded = ViewState["LoadedPageViews"] as string ?? "|";
+        if (!loaded.Contains("|" + pageViewId + "|"))
+        {
+            ViewState["LoadedPageViews"] = loaded + pageViewId + "|";
+        }
+    }
+
+    /// <summary>
+    /// 列表樣式：表頭加 class；資料列依「是否生產」與「生管核准」上底色，生管核准欄位上字色。
+    /// 綠＝需生產且生管已核准（可送簽）、黃＝需生產但生管尚未核准、白＝不需生產。
+    /// </summary>
+    private static void DecorateRow(GridView grid, GridViewRowEventArgs e)
+    {
+        if (e.Row.RowType == DataControlRowType.Header)
+        {
+            e.Row.CssClass = "grid-head";
+            return;
+        }
+        if (e.Row.RowType != DataControlRowType.DataRow)
+        {
+            return;
+        }
+
+        DataRowView data = e.Row.DataItem as DataRowView;
+        if (data == null)
+        {
+            return;
+        }
+
+        bool needProduce = FieldText(data, PRODUCE_FIELD) == "Y";
+        bool mocApproved = FieldText(data, "MOCCHECKS") == "Y";
+
+        if (needProduce)
+        {
+            e.Row.CssClass = mocApproved ? "row-ready" : "row-wait";
+
+            int col = FindColumnIndex(grid, "生管核準");
+            if (col >= 0)
+            {
+                // 設定 CssClass 會蓋掉欄位的 ItemStyle-CssClass，所以要一起帶上 col-flag
+                e.Row.Cells[col].CssClass = "col-flag " + (mocApproved ? "st-ok" : "st-wait");
+            }
+        }
+    }
+
+    /// <summary>
+    /// 送簽按鈕只在「送得出去」時顯示（條件與送簽時的檢查相同）：
+    /// ORDER_MOC_READY＝整張單需要生產的明細都已生管核准；ORDER_NO_PRODUCE＝整張單都不需生產。
+    /// </summary>
+    private static void ShowSendButtonWhen(GridViewRowEventArgs e, string buttonId, string orderFlagField)
+    {
+        if (e.Row.RowType != DataControlRowType.DataRow)
+        {
+            return;
+        }
+
+        Button btnSend = e.Row.FindControl(buttonId) as Button;
+        DataRowView data = e.Row.DataItem as DataRowView;
+        if (btnSend != null && data != null)
+        {
+            btnSend.Visible = FieldText(data, orderFlagField) == "Y";
+        }
+    }
+
+    private static string FieldText(DataRowView data, string field)
+    {
+        return data.Row.Table.Columns.Contains(field) ? data[field].ToString() : "";
+    }
+
+    private static int FindColumnIndex(GridView grid, string headerText)
+    {
+        for (int i = 0; i < grid.Columns.Count; i++)
+        {
+            if (grid.Columns[i].Visible && grid.Columns[i].HeaderText == headerText)
+            {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    #endregion
+
     #region Grid 事件
 
     // 分頁大小設為 1000，不需處理換頁
@@ -419,10 +566,12 @@ public partial class CDS_WebPage_COP_TBBU_TBCOPTFCHECK_BAKING : Ede.Uof.Utility.
     public void OnBeforeExport7(object sender, Ede.Uof.Utility.Component.BeforeExportEventArgs e) { }
 
     /// <summary>
-    /// 1.訂單變更協調：「更新」開協調視窗；「送簽」只在不需生產、或生管已核准時顯示
+    /// 1.訂單變更協調：「更新」開協調視窗；「送簽」只在整張單需要生產的明細都已生管核准時顯示
     /// </summary>
     protected void Grid1_RowDataBound(object sender, GridViewRowEventArgs e)
     {
+        DecorateRow(Grid1, e);
+
         if (e.Row.RowType != DataControlRowType.DataRow)
         {
             return;
@@ -432,12 +581,7 @@ public partial class CDS_WebPage_COP_TBBU_TBCOPTFCHECK_BAKING : Ede.Uof.Utility.
         ExpandoObject param = new { ID = btnEdit.CommandArgument }.ToExpando();
         Dialog.Open2(btnEdit, DIALOG_EDIT_URL, "", 800, 600, Dialog.PostBackType.Allows, param);
 
-        Label lblProduce = (Label)e.Row.FindControl("Label_COPTFUDF01");
-        Label lblMocCheck = (Label)e.Row.FindControl("Label_MOCCHECKS");
-        Button btnSend = (Button)e.Row.FindControl("Button2");
-
-        bool needProduce = lblProduce.Text.Equals("Y");
-        btnSend.Visible = !needProduce || lblMocCheck.Text.Equals("Y");
+        ShowSendButtonWhen(e, "Button2", "ORDER_MOC_READY");
     }
 
     protected void Grid1_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -467,6 +611,8 @@ public partial class CDS_WebPage_COP_TBBU_TBCOPTFCHECK_BAKING : Ede.Uof.Utility.
     /// <summary>2.生管用：下拉預設為目前的生管核准狀態</summary>
     protected void Grid2_RowDataBound(object sender, GridViewRowEventArgs e)
     {
+        DecorateRow(Grid2, e);
+
         SelectRowDropDown(e, "GRIDVIEWDropDownList1", "MOCCHECKS");
     }
 
@@ -485,12 +631,18 @@ public partial class CDS_WebPage_COP_TBBU_TBCOPTFCHECK_BAKING : Ede.Uof.Utility.
     /// <summary>3.採購用：下拉預設為目前的採購核准狀態</summary>
     protected void Grid3_RowDataBound(object sender, GridViewRowEventArgs e)
     {
+        DecorateRow(Grid3, e);
+
         SelectRowDropDown(e, "GRIDVIEW2DropDownList1", "PURCHECKS");
     }
 
     protected void Grid3_RowCommand(object sender, GridViewCommandEventArgs e) { }
 
-    protected void Grid4_RowDataBound(object sender, GridViewRowEventArgs e) { }
+    protected void Grid4_RowDataBound(object sender, GridViewRowEventArgs e) 
+    {
+        DecorateRow(Grid4, e);
+        ShowSendButtonWhen(e, "GRIDVIEW4Button1", "ORDER_MOC_READY");
+    }
 
     protected void Grid4_RowCommand(object sender, GridViewCommandEventArgs e)
     {
@@ -500,7 +652,11 @@ public partial class CDS_WebPage_COP_TBBU_TBCOPTFCHECK_BAKING : Ede.Uof.Utility.
         }
     }
 
-    protected void Grid5_RowDataBound(object sender, GridViewRowEventArgs e) { }
+    protected void Grid5_RowDataBound(object sender, GridViewRowEventArgs e) 
+    {
+        DecorateRow(Grid5, e);
+        ShowSendButtonWhen(e, "GRIDVIEW5Button1", "ORDER_NO_PRODUCE");
+    }
 
     protected void Grid5_RowCommand(object sender, GridViewCommandEventArgs e)
     {
@@ -510,7 +666,7 @@ public partial class CDS_WebPage_COP_TBBU_TBCOPTFCHECK_BAKING : Ede.Uof.Utility.
         }
     }
 
-    protected void Grid6_RowDataBound(object sender, GridViewRowEventArgs e) { }
+    protected void Grid6_RowDataBound(object sender, GridViewRowEventArgs e) { DecorateRow(Grid6, e); }
 
     protected void Grid6_RowCommand(object sender, GridViewCommandEventArgs e)
     {
@@ -520,7 +676,7 @@ public partial class CDS_WebPage_COP_TBBU_TBCOPTFCHECK_BAKING : Ede.Uof.Utility.
         }
     }
 
-    protected void Grid7_RowDataBound(object sender, GridViewRowEventArgs e) { }
+    protected void Grid7_RowDataBound(object sender, GridViewRowEventArgs e) { DecorateRow(Grid7, e); }
 
     protected void Grid7_RowCommand(object sender, GridViewCommandEventArgs e)
     {
