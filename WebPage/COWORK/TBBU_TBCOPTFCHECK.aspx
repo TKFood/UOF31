@@ -39,14 +39,13 @@
         }
 
         /* GridView 預設會輸出 border-collapse:collapse，固定表頭需要改成 separate */
-        /* 表格至少跟畫面一樣寬，欄位多時可左右捲動 */
+        /* 表格寬度固定為畫面寬度，不出現左右捲軸；欄位內容放不下時在格內換行 */
         .grid-wrap table {
-            width: auto !important;
-            min-width: 100%;
+            width: 100% !important;
             border-collapse: separate !important;
             border-spacing: 0;
             border-left: 1px solid #b8c4d2;
-            font-size: 15px;
+            font-size: 14px;
         }
 
         /* 格線：每格都有右框線與下框線 */
@@ -63,14 +62,15 @@
             position: sticky;
             top: 0;
             z-index: 2;
-            padding: 8px 8px;
+            padding: 6px 4px;
             color: #fff !important;
             background: #2f5f8f !important;
             border-right-color: #6f8fae !important;
             border-bottom: 2px solid #1f4369 !important;
             font-weight: bold;
-            white-space: nowrap;
+            white-space: normal;
             text-align: center;
+            line-height: 1.3;
         }
 
         /* 可排序欄位的表頭文字是連結 */
@@ -86,10 +86,10 @@
         }
 
         .grid-wrap td {
-            padding: 6px 8px;
+            padding: 5px 5px;
             background-color: #fff;
             vertical-align: top;
-            line-height: 1.5;
+            line-height: 1.45;
         }
 
         /* 滑過的列加深，方便對照同一列的欄位 */
@@ -100,8 +100,28 @@
         /* ---------- 欄位類型：數字靠右、文字靠左，Y/N 與按鈕置中（表頭跟著欄位對齊） ---------- */
         .grid-wrap .col-num {
             text-align: right;
+        }
+
+        .grid-wrap td.col-num {
             white-space: nowrap;
         }
+
+        /* 單別、單號、序號、品號、日期不拆開；客戶、品名、備註等文字欄位吸收剩下的寬度，必要時任意換行 */
+        .grid-wrap td.col-code,
+        .grid-wrap td.col-item {
+            white-space: nowrap;
+        }
+
+        .grid-wrap td.col-text,
+        .grid-wrap td.col-name,
+        .grid-wrap td.col-note {
+            overflow-wrap: anywhere;
+        }
+
+        /* 文字欄位保留基本寬度，避免被擠成一個字一行 */
+        .grid-wrap td.col-text { min-width: 5em; }
+        .grid-wrap td.col-name { min-width: 7em; }
+        .grid-wrap td.col-note { min-width: 6em; }
 
         .grid-wrap .col-text,
         .grid-wrap .col-code,
@@ -115,41 +135,37 @@
         .grid-wrap .col-flag,
         .grid-wrap .col-action {
             text-align: center;
-            white-space: nowrap;
-        }
-
-        .grid-wrap .col-code {
-            white-space: nowrap;
-        }
-
-        /* 更新日期是「日期 時間」，空白處換成兩行 */
-        .grid-wrap .col-date {
-            min-width: 90px;
-        }
-
-        .grid-wrap .col-text {
-            min-width: 110px;
-        }
-
-        .grid-wrap .col-name {
-            min-width: 200px;
-        }
-
-        .grid-wrap .col-item {
-            white-space: nowrap;
         }
 
         .grid-wrap .col-note {
-            min-width: 220px;
-            max-width: 320px;
             white-space: pre-line;
-            word-break: break-all;
         }
 
         .grid-wrap .col-input textarea {
-            width: 220px;
-            font-size: 15px;
+            width: 100%;
+            min-width: 0;
+            font-size: 14px;
             box-sizing: border-box;
+        }
+
+        /* ---------- 依螢幕寬度調整：畫面較窄時縮小字體與留白，仍然不出現左右捲軸 ---------- */
+        @media (max-width: 1700px) {
+            .grid-wrap table { font-size: 13px; }
+            .grid-wrap th { padding: 5px 3px; }
+            .grid-wrap td { padding: 4px 3px; }
+            .grid-wrap td.col-text { min-width: 4em; }
+            .grid-wrap td.col-name { min-width: 5em; }
+            .grid-wrap td.col-note { min-width: 4em; }
+            .btn-edit, .btn-send { padding: 2px 5px; font-size: 13px; }
+        }
+
+        @media (max-width: 1450px) {
+            .grid-wrap table { font-size: 12px; }
+            .grid-wrap td.col-code,
+            .grid-wrap td.col-item {
+                white-space: normal;
+                overflow-wrap: anywhere;
+            }
         }
 
         /* ---------- 生管核准狀態 ---------- */
@@ -175,8 +191,8 @@
         /* ---------- 按鈕 ---------- */
         .btn-edit,
         .btn-send {
-            padding: 4px 12px;
-            font-size: 15px;
+            padding: 3px 8px;
+            font-size: 14px;
             border-radius: 3px;
             cursor: pointer;
             white-space: nowrap;
@@ -219,7 +235,7 @@
 
         /* 列表內的下拉選單 */
         .grid-wrap select {
-            font-size: 15px;
+            font-size: 14px;
         }
     </style>
     <script type="text/javascript">
