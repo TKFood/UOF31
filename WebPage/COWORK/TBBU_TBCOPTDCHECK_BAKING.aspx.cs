@@ -1585,8 +1585,8 @@ public partial class CDS_WebPage_COP_TBBU_TBCOPTDCHECK_BAKING : Ede.Uof.Utility.
         try
         {
             // WHERE   COPTDUDF01 IN ('Y','y')
-            // AND ([MOCCHECKS] NOT IN ('Y') OR [PURCHECKS] NOT IN ('Y') )
-            // 訂單單身中，如果有要生產的，就一定要經生管、採購核準後，才能產生表單
+            // AND [MOCCHECKS] NOT IN ('Y')
+            // 訂單單身中，如果有要生產的，就一定要經生管核準後，才能產生表單（已取消採購核準檢查）
 
             cmdTxt.AppendFormat(@"                              
                                 SELECT *
@@ -1609,7 +1609,7 @@ public partial class CDS_WebPage_COP_TBBU_TBCOPTDCHECK_BAKING : Ede.Uof.Utility.
                                 ) 
                                 AS TEMP
                                 WHERE   COPTDUDF01 IN ('Y','y')
-                                AND (ISNULL([MOCCHECKS],'') NOT IN ('Y') OR ISNULL([PURCHECKS],'') NOT IN ('Y') )
+                                AND ISNULL([MOCCHECKS],'') NOT IN ('Y')
                                 AND LTRIM(RTRIM(TD001))+LTRIM(RTRIM(TD002))='{0}'
 
                                 ", TD001TD002);
@@ -1628,7 +1628,7 @@ public partial class CDS_WebPage_COP_TBBU_TBCOPTDCHECK_BAKING : Ede.Uof.Utility.
             TC002 = TD001TD002.Substring(4, 11);
 
 
-            //訂單的單身有需要生產的，需經生管、採購同意
+            //訂單的單身有需要生產的，需經生管同意
             //訂單的單身都不需要生產的，直接核單
             if (dt.Rows.Count == 0)
             {
@@ -1647,7 +1647,7 @@ public partial class CDS_WebPage_COP_TBBU_TBCOPTDCHECK_BAKING : Ede.Uof.Utility.
             }
             else
             {
-                MsgBox("送單失敗!!!! \r\n  送單失敗!!!! \r\n 送單失敗!!!! \r\n 送單失敗!!!! \r\n 送單失敗!!!! \r\n \r\n訂單的單身有需要生產的，需經生管、採購同意" + TC001 + TC002, this.Page, this);
+                MsgBox("送單失敗!!!! \r\n  送單失敗!!!! \r\n 送單失敗!!!! \r\n 送單失敗!!!! \r\n 送單失敗!!!! \r\n \r\n訂單的單身有需要生產的，需經生管同意" + TC001 + TC002, this.Page, this);
             }
         }
         catch
